@@ -1,0 +1,5478 @@
+{
+ "areas": {
+  "africa": [
+   "KEN",
+   "GHA",
+   "ZMB",
+   "GMB",
+   "LBR",
+   "TZA",
+   "UGA"
+  ],
+  "asia": [
+   "MMR",
+   "KHM",
+   "LKA",
+   "MNG",
+   "NPL"
+  ],
+  "pacific": [
+   "PHL",
+   "PNG",
+   "SLB",
+   "VUT",
+   "WSM",
+   "TON",
+   "KIR"
+  ],
+  "caribbean": [
+   "DOM",
+   "HTI",
+   "JAM",
+   "BRB"
+  ],
+  "latam": [
+   "GTM",
+   "HND",
+   "BOL",
+   "BRA",
+   "ARG",
+   "CHL"
+  ],
+  "europe": [
+   "UKR",
+   "TUR",
+   "ALB",
+   "GRC"
+  ],
+  "mideast": [
+   "EGY",
+   "SYR",
+   "YEM",
+   "LBN",
+   "JOR"
+  ],
+  "namerica": [
+   "MEX",
+   "USA",
+   "CAN"
+  ]
+ },
+ "countries": {
+  "KEN": {
+   "name": "Kenya",
+   "m49": "404",
+   "lat": 0.6,
+   "lon": 37.8,
+   "spi_mean": -0.27,
+   "spi_dry_pct": 31.9,
+   "spi_wet_pct": 14.5,
+   "gefs_anom_mm": -16.7,
+   "fao": {
+    "pou": {
+     "latest": [
+      "2023-2025",
+      34.9,
+      false
+     ],
+     "series": [
+      [
+       "2012-2014",
+       19.4,
+       false
+      ],
+      [
+       "2013-2015",
+       19.4,
+       false
+      ],
+      [
+       "2014-2016",
+       21.2,
+       false
+      ],
+      [
+       "2015-2017",
+       23.0,
+       false
+      ],
+      [
+       "2016-2018",
+       24.8,
+       false
+      ],
+      [
+       "2017-2019",
+       24.6,
+       false
+      ],
+      [
+       "2018-2020",
+       25.8,
+       false
+      ],
+      [
+       "2019-2021",
+       28.8,
+       false
+      ],
+      [
+       "2020-2022",
+       33.4,
+       false
+      ],
+      [
+       "2021-2023",
+       36.2,
+       false
+      ],
+      [
+       "2022-2024",
+       36.4,
+       false
+      ],
+      [
+       "2023-2025",
+       34.9,
+       false
+      ]
+     ]
+    },
+    "fi_modsev": {
+     "latest": [
+      "2023-2025",
+      73.3,
+      false
+     ],
+     "series": null
+    },
+    "cereal_import_dep": {
+     "latest": [
+      "2021-2023",
+      49.5,
+      false
+     ],
+     "series": null
+    },
+    "water_basic": {
+     "latest": [
+      "2024",
+      66.0,
+      false
+     ],
+     "series": null
+    },
+    "sanit_basic": {
+     "latest": [
+      "2024",
+      41.0,
+      false
+     ],
+     "series": null
+    },
+    "wasting": {
+     "latest": [
+      "2022",
+      4.5,
+      false
+     ],
+     "series": null
+    },
+    "stunting": {
+     "latest": [
+      "2024",
+      17.9,
+      false
+     ],
+     "series": null
+    },
+    "anemia": {
+     "latest": [
+      "2023",
+      32.2,
+      false
+     ],
+     "series": null
+    }
+   }
+  },
+  "GHA": {
+   "name": "Ghana",
+   "m49": "288",
+   "lat": 7.95,
+   "lon": -1.22,
+   "spi_mean": -0.0,
+   "spi_dry_pct": 19.6,
+   "spi_wet_pct": 22.0,
+   "gefs_anom_mm": -14.8,
+   "fao": {
+    "pou": {
+     "latest": [
+      "2023-2025",
+      6.4,
+      false
+     ],
+     "series": [
+      [
+       "2012-2014",
+       8.0,
+       false
+      ],
+      [
+       "2013-2015",
+       8.7,
+       false
+      ],
+      [
+       "2014-2016",
+       9.4,
+       false
+      ],
+      [
+       "2015-2017",
+       9.5,
+       false
+      ],
+      [
+       "2016-2018",
+       8.8,
+       false
+      ],
+      [
+       "2017-2019",
+       7.5,
+       false
+      ],
+      [
+       "2018-2020",
+       6.6,
+       false
+      ],
+      [
+       "2019-2021",
+       5.7,
+       false
+      ],
+      [
+       "2020-2022",
+       5.6,
+       false
+      ],
+      [
+       "2021-2023",
+       5.9,
+       false
+      ],
+      [
+       "2022-2024",
+       6.5,
+       false
+      ],
+      [
+       "2023-2025",
+       6.4,
+       false
+      ]
+     ]
+    },
+    "fi_modsev": {
+     "latest": [
+      "2023-2025",
+      44.7,
+      false
+     ],
+     "series": null
+    },
+    "cereal_import_dep": {
+     "latest": [
+      "2021-2023",
+      32.1,
+      false
+     ],
+     "series": null
+    },
+    "water_basic": {
+     "latest": [
+      "2024",
+      90.0,
+      false
+     ],
+     "series": null
+    },
+    "sanit_basic": {
+     "latest": [
+      "2024",
+      32.0,
+      false
+     ],
+     "series": null
+    },
+    "wasting": {
+     "latest": [
+      "2022",
+      5.8,
+      false
+     ],
+     "series": null
+    },
+    "stunting": {
+     "latest": [
+      "2024",
+      15.6,
+      false
+     ],
+     "series": null
+    },
+    "anemia": {
+     "latest": [
+      "2023",
+      36.0,
+      false
+     ],
+     "series": null
+    }
+   }
+  },
+  "ZMB": {
+   "name": "Zambia",
+   "m49": "894",
+   "lat": -13.46,
+   "lon": 27.77,
+   "spi_mean": 0.89,
+   "spi_dry_pct": 0.6,
+   "spi_wet_pct": 50.5,
+   "gefs_anom_mm": -4.5,
+   "fao": {
+    "pou": {
+     "latest": [
+      "2023-2025",
+      41.0,
+      false
+     ],
+     "series": [
+      [
+       "2012-2014",
+       39.1,
+       false
+      ],
+      [
+       "2013-2015",
+       37.3,
+       false
+      ],
+      [
+       "2014-2016",
+       35.1,
+       false
+      ],
+      [
+       "2015-2017",
+       33.4,
+       false
+      ],
+      [
+       "2016-2018",
+       31.8,
+       false
+      ],
+      [
+       "2017-2019",
+       31.5,
+       false
+      ],
+      [
+       "2018-2020",
+       32.1,
+       false
+      ],
+      [
+       "2019-2021",
+       33.9,
+       false
+      ],
+      [
+       "2020-2022",
+       35.7,
+       false
+      ],
+      [
+       "2021-2023",
+       35.4,
+       false
+      ],
+      [
+       "2022-2024",
+       38.5,
+       false
+      ],
+      [
+       "2023-2025",
+       41.0,
+       false
+      ]
+     ]
+    },
+    "fi_modsev": {
+     "latest": [
+      "2023-2025",
+      47.7,
+      false
+     ],
+     "series": null
+    },
+    "cereal_import_dep": {
+     "latest": [
+      "2021-2023",
+      -9.7,
+      false
+     ],
+     "series": null
+    },
+    "water_basic": {
+     "latest": [
+      "2024",
+      73.0,
+      false
+     ],
+     "series": null
+    },
+    "sanit_basic": {
+     "latest": [
+      "2024",
+      38.0,
+      false
+     ],
+     "series": null
+    },
+    "wasting": {
+     "latest": [
+      "2018",
+      4.2,
+      false
+     ],
+     "series": null
+    },
+    "stunting": {
+     "latest": [
+      "2024",
+      32.3,
+      false
+     ],
+     "series": null
+    },
+    "anemia": {
+     "latest": [
+      "2023",
+      27.1,
+      false
+     ],
+     "series": null
+    }
+   }
+  },
+  "GMB": {
+   "name": "Gambia",
+   "m49": "270",
+   "lat": 13.45,
+   "lon": -15.4,
+   "spi_mean": -0.33,
+   "spi_dry_pct": 1.6,
+   "spi_wet_pct": 0.0,
+   "gefs_anom_mm": -1.0,
+   "fao": {
+    "pou": {
+     "latest": [
+      "2023-2025",
+      17.5,
+      false
+     ],
+     "series": [
+      [
+       "2012-2014",
+       10.5,
+       false
+      ],
+      [
+       "2013-2015",
+       11.6,
+       false
+      ],
+      [
+       "2014-2016",
+       12.2,
+       false
+      ],
+      [
+       "2015-2017",
+       13.0,
+       false
+      ],
+      [
+       "2016-2018",
+       14.6,
+       false
+      ],
+      [
+       "2017-2019",
+       16.1,
+       false
+      ],
+      [
+       "2018-2020",
+       18.1,
+       false
+      ],
+      [
+       "2019-2021",
+       19.5,
+       false
+      ],
+      [
+       "2020-2022",
+       20.3,
+       false
+      ],
+      [
+       "2021-2023",
+       20.2,
+       false
+      ],
+      [
+       "2022-2024",
+       18.5,
+       false
+      ],
+      [
+       "2023-2025",
+       17.5,
+       false
+      ]
+     ]
+    },
+    "fi_modsev": {
+     "latest": [
+      "2023-2025",
+      50.8,
+      false
+     ],
+     "series": null
+    },
+    "cereal_import_dep": {
+     "latest": [
+      "2021-2023",
+      89.6,
+      false
+     ],
+     "series": null
+    },
+    "water_basic": {
+     "latest": [
+      "2024",
+      87.0,
+      false
+     ],
+     "series": null
+    },
+    "sanit_basic": {
+     "latest": [
+      "2024",
+      48.0,
+      false
+     ],
+     "series": null
+    },
+    "wasting": {
+     "latest": [
+      "2020",
+      5.1,
+      false
+     ],
+     "series": null
+    },
+    "stunting": {
+     "latest": [
+      "2024",
+      14.0,
+      false
+     ],
+     "series": null
+    },
+    "anemia": {
+     "latest": [
+      "2023",
+      46.1,
+      false
+     ],
+     "series": null
+    }
+   }
+  },
+  "LBR": {
+   "name": "Liberia",
+   "m49": "430",
+   "lat": 6.45,
+   "lon": -9.32,
+   "spi_mean": -2.18,
+   "spi_dry_pct": 95.9,
+   "spi_wet_pct": 0.0,
+   "gefs_anom_mm": -27.9,
+   "fao": {
+    "pou": {
+     "latest": [
+      "2023-2025",
+      37.3,
+      false
+     ],
+     "series": [
+      [
+       "2012-2014",
+       36.4,
+       false
+      ],
+      [
+       "2013-2015",
+       36.6,
+       false
+      ],
+      [
+       "2014-2016",
+       35.7,
+       false
+      ],
+      [
+       "2015-2017",
+       35.1,
+       false
+      ],
+      [
+       "2016-2018",
+       34.8,
+       false
+      ],
+      [
+       "2017-2019",
+       35.3,
+       false
+      ],
+      [
+       "2018-2020",
+       36.6,
+       false
+      ],
+      [
+       "2019-2021",
+       37.5,
+       false
+      ],
+      [
+       "2020-2022",
+       38.2,
+       false
+      ],
+      [
+       "2021-2023",
+       38.1,
+       false
+      ],
+      [
+       "2022-2024",
+       38.2,
+       false
+      ],
+      [
+       "2023-2025",
+       37.3,
+       false
+      ]
+     ]
+    },
+    "fi_modsev": {
+     "latest": [
+      "2023-2025",
+      81.2,
+      false
+     ],
+     "series": null
+    },
+    "cereal_import_dep": {
+     "latest": [
+      "2021-2023",
+      72.3,
+      false
+     ],
+     "series": null
+    },
+    "water_basic": {
+     "latest": [
+      "2024",
+      79.0,
+      false
+     ],
+     "series": null
+    },
+    "sanit_basic": {
+     "latest": [
+      "2024",
+      23.0,
+      false
+     ],
+     "series": null
+    },
+    "wasting": {
+     "latest": [
+      "2019",
+      3.4,
+      false
+     ],
+     "series": null
+    },
+    "stunting": {
+     "latest": [
+      "2024",
+      26.9,
+      false
+     ],
+     "series": null
+    },
+    "anemia": {
+     "latest": [
+      "2023",
+      42.5,
+      false
+     ],
+     "series": null
+    }
+   }
+  },
+  "TZA": {
+   "name": "Tanzania",
+   "m49": "834",
+   "lat": -6.28,
+   "lon": 34.81,
+   "spi_mean": -0.48,
+   "spi_dry_pct": 20.6,
+   "spi_wet_pct": 5.3,
+   "gefs_anom_mm": -8.7,
+   "fao": {
+    "pou": {
+     "latest": [
+      "2023-2025",
+      19.1,
+      false
+     ],
+     "series": [
+      [
+       "2012-2014",
+       21.1,
+       false
+      ],
+      [
+       "2013-2015",
+       21.1,
+       false
+      ],
+      [
+       "2014-2016",
+       21.4,
+       false
+      ],
+      [
+       "2015-2017",
+       22.0,
+       false
+      ],
+      [
+       "2016-2018",
+       22.8,
+       false
+      ],
+      [
+       "2017-2019",
+       23.3,
+       false
+      ],
+      [
+       "2018-2020",
+       23.6,
+       false
+      ],
+      [
+       "2019-2021",
+       23.5,
+       false
+      ],
+      [
+       "2020-2022",
+       23.0,
+       false
+      ],
+      [
+       "2021-2023",
+       21.7,
+       false
+      ],
+      [
+       "2022-2024",
+       20.2,
+       false
+      ],
+      [
+       "2023-2025",
+       19.1,
+       false
+      ]
+     ]
+    },
+    "fi_modsev": {
+     "latest": [
+      "2023-2025",
+      59.2,
+      false
+     ],
+     "series": null
+    },
+    "cereal_import_dep": {
+     "latest": [
+      "2021-2023",
+      1.8,
+      false
+     ],
+     "series": null
+    },
+    "water_basic": {
+     "latest": [
+      "2024",
+      65.0,
+      false
+     ],
+     "series": null
+    },
+    "sanit_basic": {
+     "latest": [
+      "2024",
+      37.0,
+      false
+     ],
+     "series": null
+    },
+    "wasting": {
+     "latest": [
+      "2022",
+      3.1,
+      false
+     ],
+     "series": null
+    },
+    "stunting": {
+     "latest": [
+      "2024",
+      29.9,
+      false
+     ],
+     "series": null
+    },
+    "anemia": {
+     "latest": [
+      "2023",
+      38.8,
+      false
+     ],
+     "series": null
+    }
+   }
+  },
+  "UGA": {
+   "name": "Uganda",
+   "m49": "800",
+   "lat": 1.27,
+   "lon": 32.37,
+   "spi_mean": -0.78,
+   "spi_dry_pct": 42.0,
+   "spi_wet_pct": 4.0,
+   "gefs_anom_mm": -28.8,
+   "fao": {
+    "pou": {
+     "latest": [
+      "2023-2025",
+      20.9,
+      false
+     ],
+     "series": [
+      [
+       "2012-2014",
+       21.9,
+       false
+      ],
+      [
+       "2013-2015",
+       24.5,
+       false
+      ],
+      [
+       "2014-2016",
+       31.5,
+       false
+      ],
+      [
+       "2015-2017",
+       36.4,
+       false
+      ],
+      [
+       "2016-2018",
+       38.4,
+       false
+      ],
+      [
+       "2017-2019",
+       38.1,
+       false
+      ],
+      [
+       "2018-2020",
+       35.0,
+       false
+      ],
+      [
+       "2019-2021",
+       32.9,
+       false
+      ],
+      [
+       "2020-2022",
+       26.5,
+       false
+      ],
+      [
+       "2021-2023",
+       24.3,
+       false
+      ],
+      [
+       "2022-2024",
+       21.6,
+       false
+      ],
+      [
+       "2023-2025",
+       20.9,
+       false
+      ]
+     ]
+    },
+    "fi_modsev": {
+     "latest": [
+      "2023-2025",
+      53.1,
+      false
+     ],
+     "series": null
+    },
+    "cereal_import_dep": {
+     "latest": [
+      "2021-2023",
+      15.3,
+      false
+     ],
+     "series": null
+    },
+    "water_basic": {
+     "latest": [
+      "2024",
+      63.0,
+      false
+     ],
+     "series": null
+    },
+    "sanit_basic": {
+     "latest": [
+      "2024",
+      24.0,
+      false
+     ],
+     "series": null
+    },
+    "wasting": {
+     "latest": [
+      "2022",
+      3.2,
+      false
+     ],
+     "series": null
+    },
+    "stunting": {
+     "latest": [
+      "2024",
+      23.5,
+      false
+     ],
+     "series": null
+    },
+    "anemia": {
+     "latest": [
+      "2023",
+      27.2,
+      false
+     ],
+     "series": null
+    }
+   }
+  },
+  "MMR": {
+   "name": "Myanmar",
+   "m49": "104",
+   "lat": 21.19,
+   "lon": 96.49,
+   "spi_mean": -0.51,
+   "spi_dry_pct": 35.9,
+   "spi_wet_pct": 8.9,
+   "gefs_anom_mm": -5.0,
+   "fao": {
+    "pou": {
+     "latest": [
+      "2023-2025",
+      4.6,
+      false
+     ],
+     "series": [
+      [
+       "2012-2014",
+       6.4,
+       false
+      ],
+      [
+       "2013-2015",
+       5.5,
+       false
+      ],
+      [
+       "2014-2016",
+       4.5,
+       false
+      ],
+      [
+       "2015-2017",
+       3.8,
+       false
+      ],
+      [
+       "2016-2018",
+       3.4,
+       false
+      ],
+      [
+       "2017-2019",
+       3.2,
+       false
+      ],
+      [
+       "2018-2020",
+       3.0,
+       false
+      ],
+      [
+       "2019-2021",
+       3.6,
+       false
+      ],
+      [
+       "2020-2022",
+       4.2,
+       false
+      ],
+      [
+       "2021-2023",
+       4.8,
+       false
+      ],
+      [
+       "2022-2024",
+       4.7,
+       false
+      ],
+      [
+       "2023-2025",
+       4.6,
+       false
+      ]
+     ]
+    },
+    "fi_modsev": {
+     "latest": [
+      "2023-2025",
+      35.5,
+      false
+     ],
+     "series": null
+    },
+    "cereal_import_dep": {
+     "latest": [
+      "2021-2023",
+      -12.4,
+      false
+     ],
+     "series": null
+    },
+    "water_basic": {
+     "latest": [
+      "2024",
+      86.0,
+      false
+     ],
+     "series": null
+    },
+    "sanit_basic": {
+     "latest": [
+      "2024",
+      74.0,
+      false
+     ],
+     "series": null
+    },
+    "wasting": {
+     "latest": [
+      "2018",
+      7.4,
+      false
+     ],
+     "series": null
+    },
+    "stunting": {
+     "latest": [
+      "2024",
+      24.5,
+      false
+     ],
+     "series": null
+    },
+    "anemia": {
+     "latest": [
+      "2023",
+      39.7,
+      false
+     ],
+     "series": null
+    }
+   }
+  },
+  "KHM": {
+   "name": "Cambodia",
+   "m49": "116",
+   "lat": 12.72,
+   "lon": 104.91,
+   "spi_mean": 0.23,
+   "spi_dry_pct": 12.1,
+   "spi_wet_pct": 20.5,
+   "gefs_anom_mm": 10.0,
+   "fao": {
+    "pou": {
+     "latest": [
+      "2023-2025",
+      4.7,
+      false
+     ],
+     "series": [
+      [
+       "2012-2014",
+       8.4,
+       false
+      ],
+      [
+       "2013-2015",
+       8.1,
+       false
+      ],
+      [
+       "2014-2016",
+       7.5,
+       false
+      ],
+      [
+       "2015-2017",
+       6.8,
+       false
+      ],
+      [
+       "2016-2018",
+       6.3,
+       false
+      ],
+      [
+       "2017-2019",
+       5.6,
+       false
+      ],
+      [
+       "2018-2020",
+       5.4,
+       false
+      ],
+      [
+       "2019-2021",
+       5.6,
+       false
+      ],
+      [
+       "2020-2022",
+       6.1,
+       false
+      ],
+      [
+       "2021-2023",
+       5.8,
+       false
+      ],
+      [
+       "2022-2024",
+       5.2,
+       false
+      ],
+      [
+       "2023-2025",
+       4.7,
+       false
+      ]
+     ]
+    },
+    "fi_modsev": {
+     "latest": [
+      "2023-2025",
+      39.8,
+      false
+     ],
+     "series": null
+    },
+    "cereal_import_dep": {
+     "latest": [
+      "2021-2023",
+      -3.2,
+      false
+     ],
+     "series": null
+    },
+    "water_basic": {
+     "latest": [
+      "2024",
+      83.0,
+      false
+     ],
+     "series": null
+    },
+    "sanit_basic": {
+     "latest": [
+      "2024",
+      83.0,
+      false
+     ],
+     "series": null
+    },
+    "wasting": {
+     "latest": [
+      "2021",
+      9.6,
+      false
+     ],
+     "series": null
+    },
+    "stunting": {
+     "latest": [
+      "2024",
+      22.0,
+      false
+     ],
+     "series": null
+    },
+    "anemia": {
+     "latest": [
+      "2023",
+      38.0,
+      false
+     ],
+     "series": null
+    }
+   }
+  },
+  "LKA": {
+   "name": "Sri Lanka",
+   "m49": "144",
+   "lat": 7.61,
+   "lon": 80.7,
+   "spi_mean": 0.74,
+   "spi_dry_pct": 1.6,
+   "spi_wet_pct": 43.0,
+   "gefs_anom_mm": 57.9,
+   "fao": {
+    "pou": {
+     "latest": [
+      "2023-2025",
+      4.9,
+      false
+     ],
+     "series": [
+      [
+       "2012-2014",
+       8.8,
+       false
+      ],
+      [
+       "2013-2015",
+       6.1,
+       false
+      ],
+      [
+       "2014-2016",
+       4.5,
+       false
+      ],
+      [
+       "2015-2017",
+       4.1,
+       false
+      ],
+      [
+       "2016-2018",
+       5.0,
+       false
+      ],
+      [
+       "2017-2019",
+       5.4,
+       false
+      ],
+      [
+       "2018-2020",
+       3.8,
+       false
+      ],
+      [
+       "2019-2021",
+       3.3,
+       false
+      ],
+      [
+       "2020-2022",
+       4.6,
+       false
+      ],
+      [
+       "2021-2023",
+       5.8,
+       false
+      ],
+      [
+       "2022-2024",
+       6.6,
+       false
+      ],
+      [
+       "2023-2025",
+       4.9,
+       false
+      ]
+     ]
+    },
+    "fi_modsev": {
+     "latest": [
+      "2023-2025",
+      10.4,
+      false
+     ],
+     "series": null
+    },
+    "cereal_import_dep": {
+     "latest": [
+      "2021-2023",
+      26.4,
+      false
+     ],
+     "series": null
+    },
+    "water_basic": {
+     "latest": [
+      "2024",
+      90.0,
+      false
+     ],
+     "series": null
+    },
+    "sanit_basic": {
+     "latest": [
+      "2024",
+      95.0,
+      false
+     ],
+     "series": null
+    },
+    "wasting": {
+     "latest": [
+      "2024",
+      9.3,
+      false
+     ],
+     "series": null
+    },
+    "stunting": {
+     "latest": [
+      "2024",
+      10.1,
+      false
+     ],
+     "series": null
+    },
+    "anemia": {
+     "latest": [
+      "2023",
+      20.9,
+      false
+     ],
+     "series": null
+    }
+   }
+  },
+  "MNG": {
+   "name": "Mongolia",
+   "m49": "496",
+   "lat": 46.83,
+   "lon": 103.05,
+   "spi_mean": 0.12,
+   "spi_dry_pct": 9.8,
+   "spi_wet_pct": 16.9,
+   "gefs_anom_mm": -2.5,
+   "fao": {
+    "pou": {
+     "latest": [
+      "2023-2025",
+      2.5,
+      true
+     ],
+     "series": [
+      [
+       "2012-2014",
+       12.1,
+       false
+      ],
+      [
+       "2013-2015",
+       10.9,
+       false
+      ],
+      [
+       "2014-2016",
+       9.1,
+       false
+      ],
+      [
+       "2015-2017",
+       8.3,
+       false
+      ],
+      [
+       "2016-2018",
+       7.0,
+       false
+      ],
+      [
+       "2017-2019",
+       6.3,
+       false
+      ],
+      [
+       "2018-2020",
+       5.1,
+       false
+      ],
+      [
+       "2019-2021",
+       4.8,
+       false
+      ],
+      [
+       "2020-2022",
+       3.7,
+       false
+      ],
+      [
+       "2021-2023",
+       2.5,
+       false
+      ],
+      [
+       "2022-2024",
+       2.5,
+       true
+      ],
+      [
+       "2023-2025",
+       2.5,
+       true
+      ]
+     ]
+    },
+    "fi_modsev": {
+     "latest": [
+      "2023-2025",
+      5.5,
+      false
+     ],
+     "series": null
+    },
+    "cereal_import_dep": {
+     "latest": [
+      "2021-2023",
+      39.3,
+      false
+     ],
+     "series": null
+    },
+    "water_basic": {
+     "latest": [
+      "2024",
+      86.0,
+      false
+     ],
+     "series": null
+    },
+    "sanit_basic": {
+     "latest": [
+      "2024",
+      74.0,
+      false
+     ],
+     "series": null
+    },
+    "wasting": {
+     "latest": [
+      "2023",
+      2.7,
+      false
+     ],
+     "series": null
+    },
+    "stunting": {
+     "latest": [
+      "2024",
+      7.1,
+      false
+     ],
+     "series": null
+    },
+    "anemia": {
+     "latest": [
+      "2023",
+      19.1,
+      false
+     ],
+     "series": null
+    }
+   }
+  },
+  "NPL": {
+   "name": "Nepal",
+   "m49": "524",
+   "lat": 28.25,
+   "lon": 83.92,
+   "spi_mean": 0.15,
+   "spi_dry_pct": 15.5,
+   "spi_wet_pct": 27.4,
+   "gefs_anom_mm": 40.6,
+   "fao": {
+    "pou": {
+     "latest": [
+      "2023-2025",
+      5.2,
+      false
+     ],
+     "series": [
+      [
+       "2012-2014",
+       8.6,
+       false
+      ],
+      [
+       "2013-2015",
+       8.1,
+       false
+      ],
+      [
+       "2014-2016",
+       7.0,
+       false
+      ],
+      [
+       "2015-2017",
+       5.8,
+       false
+      ],
+      [
+       "2016-2018",
+       4.8,
+       false
+      ],
+      [
+       "2017-2019",
+       4.4,
+       false
+      ],
+      [
+       "2018-2020",
+       4.7,
+       false
+      ],
+      [
+       "2019-2021",
+       5.2,
+       false
+      ],
+      [
+       "2020-2022",
+       5.3,
+       false
+      ],
+      [
+       "2021-2023",
+       5.4,
+       false
+      ],
+      [
+       "2022-2024",
+       5.3,
+       false
+      ],
+      [
+       "2023-2025",
+       5.2,
+       false
+      ]
+     ]
+    },
+    "fi_modsev": {
+     "latest": [
+      "2023-2025",
+      37.8,
+      false
+     ],
+     "series": null
+    },
+    "cereal_import_dep": {
+     "latest": [
+      "2021-2023",
+      17.3,
+      false
+     ],
+     "series": null
+    },
+    "water_basic": {
+     "latest": [
+      "2024",
+      94.0,
+      false
+     ],
+     "series": null
+    },
+    "sanit_basic": {
+     "latest": [
+      "2024",
+      86.0,
+      false
+     ],
+     "series": null
+    },
+    "wasting": {
+     "latest": [
+      "2022",
+      7.0,
+      false
+     ],
+     "series": null
+    },
+    "stunting": {
+     "latest": [
+      "2024",
+      26.0,
+      false
+     ],
+     "series": null
+    },
+    "anemia": {
+     "latest": [
+      "2023",
+      33.2,
+      false
+     ],
+     "series": null
+    }
+   }
+  },
+  "PHL": {
+   "name": "Philippines",
+   "m49": "608",
+   "lat": 11.78,
+   "lon": 122.88,
+   "spi_mean": -0.73,
+   "spi_dry_pct": 46.4,
+   "spi_wet_pct": 10.4,
+   "gefs_anom_mm": -31.8,
+   "fao": {
+    "pou": {
+     "latest": [
+      "2023-2025",
+      3.4,
+      false
+     ],
+     "series": [
+      [
+       "2012-2014",
+       13.5,
+       false
+      ],
+      [
+       "2013-2015",
+       13.1,
+       false
+      ],
+      [
+       "2014-2016",
+       11.3,
+       false
+      ],
+      [
+       "2015-2017",
+       9.8,
+       false
+      ],
+      [
+       "2016-2018",
+       7.7,
+       false
+      ],
+      [
+       "2017-2019",
+       6.5,
+       false
+      ],
+      [
+       "2018-2020",
+       5.9,
+       false
+      ],
+      [
+       "2019-2021",
+       5.3,
+       false
+      ],
+      [
+       "2020-2022",
+       4.8,
+       false
+      ],
+      [
+       "2021-2023",
+       3.9,
+       false
+      ],
+      [
+       "2022-2024",
+       3.7,
+       false
+      ],
+      [
+       "2023-2025",
+       3.4,
+       false
+      ]
+     ]
+    },
+    "fi_modsev": {
+     "latest": [
+      "2023-2025",
+      33.9,
+      false
+     ],
+     "series": null
+    },
+    "cereal_import_dep": {
+     "latest": [
+      "2021-2023",
+      30.7,
+      false
+     ],
+     "series": null
+    },
+    "water_basic": {
+     "latest": [
+      "2024",
+      96.0,
+      false
+     ],
+     "series": null
+    },
+    "sanit_basic": {
+     "latest": [
+      "2024",
+      87.0,
+      false
+     ],
+     "series": null
+    },
+    "wasting": {
+     "latest": [
+      "2021",
+      5.4,
+      false
+     ],
+     "series": null
+    },
+    "stunting": {
+     "latest": [
+      "2024",
+      27.7,
+      false
+     ],
+     "series": null
+    },
+    "anemia": {
+     "latest": [
+      "2023",
+      12.0,
+      false
+     ],
+     "series": null
+    }
+   }
+  },
+  "PNG": {
+   "name": "Papua New Guinea",
+   "m49": "598",
+   "lat": -6.46,
+   "lon": 145.21,
+   "spi_mean": -3.1,
+   "spi_dry_pct": 99.0,
+   "spi_wet_pct": 0.0,
+   "gefs_anom_mm": -63.2,
+   "fao": {
+    "pou": {
+     "latest": [
+      "2023-2025",
+      30.5,
+      false
+     ],
+     "series": [
+      [
+       "2012-2014",
+       27.3,
+       false
+      ],
+      [
+       "2013-2015",
+       27.5,
+       false
+      ],
+      [
+       "2014-2016",
+       27.8,
+       false
+      ],
+      [
+       "2015-2017",
+       28.2,
+       false
+      ],
+      [
+       "2016-2018",
+       28.3,
+       false
+      ],
+      [
+       "2017-2019",
+       28.5,
+       false
+      ],
+      [
+       "2018-2020",
+       28.2,
+       false
+      ],
+      [
+       "2019-2021",
+       28.3,
+       false
+      ],
+      [
+       "2020-2022",
+       27.9,
+       false
+      ],
+      [
+       "2021-2023",
+       29.3,
+       false
+      ],
+      [
+       "2022-2024",
+       29.7,
+       false
+      ],
+      [
+       "2023-2025",
+       30.5,
+       false
+      ]
+     ]
+    },
+    "fi_modsev": {
+     "latest": [
+      "2018-2020",
+      59.4,
+      false
+     ],
+     "series": null
+    },
+    "cereal_import_dep": {
+     "latest": [
+      "2021-2023",
+      95.2,
+      false
+     ],
+     "series": null
+    },
+    "water_basic": {
+     "latest": [
+      "2024",
+      53.0,
+      false
+     ],
+     "series": null
+    },
+    "sanit_basic": {
+     "latest": [
+      "2024",
+      24.0,
+      false
+     ],
+     "series": null
+    },
+    "wasting": {
+     "latest": [
+      "2010",
+      14.1,
+      false
+     ],
+     "series": null
+    },
+    "stunting": {
+     "latest": [
+      "2024",
+      47.6,
+      false
+     ],
+     "series": null
+    },
+    "anemia": {
+     "latest": [
+      "2023",
+      28.8,
+      false
+     ],
+     "series": null
+    }
+   }
+  },
+  "SLB": {
+   "name": "Solomon Is.",
+   "m49": "090",
+   "lat": -8.92,
+   "lon": 159.63,
+   "spi_mean": -0.6,
+   "spi_dry_pct": 35.0,
+   "spi_wet_pct": 0.0,
+   "gefs_anom_mm": -59.2,
+   "fao": {
+    "pou": {
+     "latest": [
+      "2023-2025",
+      27.0,
+      false
+     ],
+     "series": [
+      [
+       "2012-2014",
+       20.5,
+       false
+      ],
+      [
+       "2013-2015",
+       20.9,
+       false
+      ],
+      [
+       "2014-2016",
+       21.3,
+       false
+      ],
+      [
+       "2015-2017",
+       21.3,
+       false
+      ],
+      [
+       "2016-2018",
+       21.5,
+       false
+      ],
+      [
+       "2017-2019",
+       20.9,
+       false
+      ],
+      [
+       "2018-2020",
+       21.5,
+       false
+      ],
+      [
+       "2019-2021",
+       22.5,
+       false
+      ],
+      [
+       "2020-2022",
+       25.3,
+       false
+      ],
+      [
+       "2021-2023",
+       27.9,
+       false
+      ],
+      [
+       "2022-2024",
+       28.1,
+       false
+      ],
+      [
+       "2023-2025",
+       27.0,
+       false
+      ]
+     ]
+    },
+    "cereal_import_dep": {
+     "latest": [
+      "2021-2023",
+      100.0,
+      false
+     ],
+     "series": null
+    },
+    "water_basic": {
+     "latest": [
+      "2024",
+      72.0,
+      false
+     ],
+     "series": null
+    },
+    "sanit_basic": {
+     "latest": [
+      "2024",
+      35.0,
+      false
+     ],
+     "series": null
+    },
+    "wasting": {
+     "latest": [
+      "2015",
+      8.5,
+      false
+     ],
+     "series": null
+    },
+    "stunting": {
+     "latest": [
+      "2024",
+      29.8,
+      false
+     ],
+     "series": null
+    },
+    "anemia": {
+     "latest": [
+      "2023",
+      32.6,
+      false
+     ],
+     "series": null
+    }
+   }
+  },
+  "VUT": {
+   "name": "Vanuatu",
+   "m49": "548",
+   "lat": -16.23,
+   "lon": 167.69,
+   "spi_mean": -1.2,
+   "spi_dry_pct": 80.7,
+   "spi_wet_pct": 0.0,
+   "gefs_anom_mm": -98.8,
+   "fao": {
+    "pou": {
+     "latest": [
+      "2023-2025",
+      5.8,
+      false
+     ],
+     "series": [
+      [
+       "2012-2014",
+       6.0,
+       false
+      ],
+      [
+       "2013-2015",
+       5.9,
+       false
+      ],
+      [
+       "2014-2016",
+       5.8,
+       false
+      ],
+      [
+       "2015-2017",
+       5.8,
+       false
+      ],
+      [
+       "2016-2018",
+       5.7,
+       false
+      ],
+      [
+       "2017-2019",
+       5.8,
+       false
+      ],
+      [
+       "2018-2020",
+       6.1,
+       false
+      ],
+      [
+       "2019-2021",
+       6.3,
+       false
+      ],
+      [
+       "2020-2022",
+       6.4,
+       false
+      ],
+      [
+       "2021-2023",
+       6.6,
+       false
+      ],
+      [
+       "2022-2024",
+       6.2,
+       false
+      ],
+      [
+       "2023-2025",
+       5.8,
+       false
+      ]
+     ]
+    },
+    "fi_modsev": {
+     "latest": [
+      "2019-2021",
+      25.5,
+      false
+     ],
+     "series": null
+    },
+    "cereal_import_dep": {
+     "latest": [
+      "2021-2023",
+      98.2,
+      false
+     ],
+     "series": null
+    },
+    "water_basic": {
+     "latest": [
+      "2024",
+      87.0,
+      false
+     ],
+     "series": null
+    },
+    "sanit_basic": {
+     "latest": [
+      "2024",
+      48.0,
+      false
+     ],
+     "series": null
+    },
+    "wasting": {
+     "latest": [
+      "2013",
+      4.7,
+      false
+     ],
+     "series": null
+    },
+    "stunting": {
+     "latest": [
+      "2024",
+      31.0,
+      false
+     ],
+     "series": null
+    },
+    "anemia": {
+     "latest": [
+      "2023",
+      30.4,
+      false
+     ],
+     "series": null
+    }
+   }
+  },
+  "WSM": {
+   "name": "Samoa",
+   "m49": "882",
+   "lat": -13.75,
+   "lon": -172.16,
+   "spi_mean": -1.83,
+   "spi_dry_pct": 100.0,
+   "spi_wet_pct": 0.0,
+   "gefs_anom_mm": -102.1,
+   "fao": {
+    "pou": {
+     "latest": [
+      "2023-2025",
+      3.4,
+      false
+     ],
+     "series": [
+      [
+       "2012-2014",
+       4.8,
+       false
+      ],
+      [
+       "2013-2015",
+       4.7,
+       false
+      ],
+      [
+       "2014-2016",
+       4.6,
+       false
+      ],
+      [
+       "2015-2017",
+       4.7,
+       false
+      ],
+      [
+       "2016-2018",
+       4.5,
+       false
+      ],
+      [
+       "2017-2019",
+       4.4,
+       false
+      ],
+      [
+       "2018-2020",
+       4.2,
+       false
+      ],
+      [
+       "2019-2021",
+       3.9,
+       false
+      ],
+      [
+       "2020-2022",
+       3.7,
+       false
+      ],
+      [
+       "2021-2023",
+       3.8,
+       false
+      ],
+      [
+       "2022-2024",
+       3.7,
+       false
+      ],
+      [
+       "2023-2025",
+       3.4,
+       false
+      ]
+     ]
+    },
+    "fi_modsev": {
+     "latest": [
+      "2023-2025",
+      19.8,
+      false
+     ],
+     "series": null
+    },
+    "water_basic": {
+     "latest": [
+      "2024",
+      99.0,
+      false
+     ],
+     "series": null
+    },
+    "sanit_basic": {
+     "latest": [
+      "2024",
+      97.0,
+      false
+     ],
+     "series": null
+    },
+    "wasting": {
+     "latest": [
+      "2019",
+      3.1,
+      false
+     ],
+     "series": null
+    },
+    "stunting": {
+     "latest": [
+      "2024",
+      8.4,
+      false
+     ],
+     "series": null
+    },
+    "anemia": {
+     "latest": [
+      "2023",
+      21.9,
+      false
+     ],
+     "series": null
+    }
+   }
+  },
+  "TON": {
+   "name": "Tonga",
+   "m49": "776",
+   "lat": -20.43,
+   "lon": -174.81,
+   "spi_mean": -1.35,
+   "spi_dry_pct": 100.0,
+   "spi_wet_pct": 0.0,
+   "gefs_anom_mm": -60.5,
+   "fao": {
+    "fi_modsev": {
+     "latest": [
+      "2021-2023",
+      17.9,
+      false
+     ],
+     "series": null
+    },
+    "cereal_import_dep": {
+     "latest": [
+      "2020-2022",
+      96.0,
+      false
+     ],
+     "series": null
+    },
+    "water_basic": {
+     "latest": [
+      "2024",
+      99.0,
+      false
+     ],
+     "series": null
+    },
+    "sanit_basic": {
+     "latest": [
+      "2024",
+      94.0,
+      false
+     ],
+     "series": null
+    },
+    "wasting": {
+     "latest": [
+      "2019",
+      1.1,
+      false
+     ],
+     "series": null
+    },
+    "stunting": {
+     "latest": [
+      "2024",
+      1.6,
+      false
+     ],
+     "series": null
+    },
+    "anemia": {
+     "latest": [
+      "2023",
+      20.7,
+      false
+     ],
+     "series": null
+    }
+   }
+  },
+  "KIR": {
+   "name": "Kiribati",
+   "m49": "296",
+   "lat": 0.86,
+   "lon": -45.61,
+   "spi_mean": 2.96,
+   "spi_dry_pct": 0.0,
+   "spi_wet_pct": 100.0,
+   "gefs_anom_mm": 64.2,
+   "fao": {
+    "pou": {
+     "latest": [
+      "2023-2025",
+      3.8,
+      false
+     ],
+     "series": [
+      [
+       "2012-2014",
+       3.7,
+       false
+      ],
+      [
+       "2013-2015",
+       3.6,
+       false
+      ],
+      [
+       "2014-2016",
+       3.6,
+       false
+      ],
+      [
+       "2015-2017",
+       3.9,
+       false
+      ],
+      [
+       "2016-2018",
+       4.1,
+       false
+      ],
+      [
+       "2017-2019",
+       4.2,
+       false
+      ],
+      [
+       "2018-2020",
+       4.3,
+       false
+      ],
+      [
+       "2019-2021",
+       4.4,
+       false
+      ],
+      [
+       "2020-2022",
+       4.7,
+       false
+      ],
+      [
+       "2021-2023",
+       4.4,
+       false
+      ],
+      [
+       "2022-2024",
+       4.1,
+       false
+      ],
+      [
+       "2023-2025",
+       3.8,
+       false
+      ]
+     ]
+    },
+    "fi_modsev": {
+     "latest": [
+      "2023-2025",
+      47.4,
+      false
+     ],
+     "series": null
+    },
+    "water_basic": {
+     "latest": [
+      "2024",
+      79.0,
+      false
+     ],
+     "series": null
+    },
+    "sanit_basic": {
+     "latest": [
+      "2024",
+      45.0,
+      false
+     ],
+     "series": null
+    },
+    "wasting": {
+     "latest": [
+      "2018",
+      3.5,
+      false
+     ],
+     "series": null
+    },
+    "stunting": {
+     "latest": [
+      "2024",
+      14.7,
+      false
+     ],
+     "series": null
+    },
+    "anemia": {
+     "latest": [
+      "2023",
+      26.9,
+      false
+     ],
+     "series": null
+    }
+   }
+  },
+  "DOM": {
+   "name": "Dominican Rep.",
+   "m49": "214",
+   "lat": 18.89,
+   "lon": -70.51,
+   "spi_mean": -0.56,
+   "spi_dry_pct": 43.4,
+   "spi_wet_pct": 2.0,
+   "gefs_anom_mm": 62.5,
+   "fao": {
+    "pou": {
+     "latest": [
+      "2023-2025",
+      2.5,
+      true
+     ],
+     "series": [
+      [
+       "2012-2014",
+       9.4,
+       false
+      ],
+      [
+       "2013-2015",
+       8.6,
+       false
+      ],
+      [
+       "2014-2016",
+       7.6,
+       false
+      ],
+      [
+       "2015-2017",
+       6.8,
+       false
+      ],
+      [
+       "2016-2018",
+       5.7,
+       false
+      ],
+      [
+       "2017-2019",
+       5.2,
+       false
+      ],
+      [
+       "2018-2020",
+       5.3,
+       false
+      ],
+      [
+       "2019-2021",
+       5.2,
+       false
+      ],
+      [
+       "2020-2022",
+       4.7,
+       false
+      ],
+      [
+       "2021-2023",
+       3.6,
+       false
+      ],
+      [
+       "2022-2024",
+       2.8,
+       false
+      ],
+      [
+       "2023-2025",
+       2.5,
+       true
+      ]
+     ]
+    },
+    "fi_modsev": {
+     "latest": [
+      "2023-2025",
+      45.2,
+      false
+     ],
+     "series": null
+    },
+    "cereal_import_dep": {
+     "latest": [
+      "2021-2023",
+      63.0,
+      false
+     ],
+     "series": null
+    },
+    "water_basic": {
+     "latest": [
+      "2024",
+      98.0,
+      false
+     ],
+     "series": null
+    },
+    "sanit_basic": {
+     "latest": [
+      "2024",
+      90.0,
+      false
+     ],
+     "series": null
+    },
+    "wasting": {
+     "latest": [
+      "2019",
+      2.2,
+      false
+     ],
+     "series": null
+    },
+    "stunting": {
+     "latest": [
+      "2024",
+      5.6,
+      false
+     ],
+     "series": null
+    },
+    "anemia": {
+     "latest": [
+      "2023",
+      22.4,
+      false
+     ],
+     "series": null
+    }
+   }
+  },
+  "HTI": {
+   "name": "Haiti",
+   "m49": "332",
+   "lat": 18.94,
+   "lon": -72.69,
+   "spi_mean": 0.19,
+   "spi_dry_pct": 11.8,
+   "spi_wet_pct": 5.5,
+   "gefs_anom_mm": 183.8,
+   "fao": {
+    "pou": {
+     "latest": [
+      "2023-2025",
+      51.4,
+      false
+     ],
+     "series": [
+      [
+       "2012-2014",
+       39.0,
+       false
+      ],
+      [
+       "2013-2015",
+       37.7,
+       false
+      ],
+      [
+       "2014-2016",
+       37.8,
+       false
+      ],
+      [
+       "2015-2017",
+       38.6,
+       false
+      ],
+      [
+       "2016-2018",
+       40.2,
+       false
+      ],
+      [
+       "2017-2019",
+       41.2,
+       false
+      ],
+      [
+       "2018-2020",
+       42.6,
+       false
+      ],
+      [
+       "2019-2021",
+       43.5,
+       false
+      ],
+      [
+       "2020-2022",
+       47.5,
+       false
+      ],
+      [
+       "2021-2023",
+       50.4,
+       false
+      ],
+      [
+       "2022-2024",
+       52.6,
+       false
+      ],
+      [
+       "2023-2025",
+       51.4,
+       false
+      ]
+     ]
+    },
+    "fi_modsev": {
+     "latest": [
+      "2023-2025",
+      86.7,
+      false
+     ],
+     "series": null
+    },
+    "cereal_import_dep": {
+     "latest": [
+      "2021-2023",
+      82.9,
+      false
+     ],
+     "series": null
+    },
+    "water_basic": {
+     "latest": [
+      "2024",
+      73.0,
+      false
+     ],
+     "series": null
+    },
+    "sanit_basic": {
+     "latest": [
+      "2024",
+      29.0,
+      false
+     ],
+     "series": null
+    },
+    "wasting": {
+     "latest": [
+      "2023",
+      5.0,
+      false
+     ],
+     "series": null
+    },
+    "stunting": {
+     "latest": [
+      "2024",
+      21.6,
+      false
+     ],
+     "series": null
+    },
+    "anemia": {
+     "latest": [
+      "2023",
+      45.9,
+      false
+     ],
+     "series": null
+    }
+   }
+  },
+  "JAM": {
+   "name": "Jamaica",
+   "m49": "388",
+   "lat": 18.16,
+   "lon": -77.31,
+   "spi_mean": -1.63,
+   "spi_dry_pct": 91.0,
+   "spi_wet_pct": 0.0,
+   "gefs_anom_mm": -79.8,
+   "fao": {
+    "pou": {
+     "latest": [
+      "2023-2025",
+      8.0,
+      false
+     ],
+     "series": [
+      [
+       "2012-2014",
+       8.0,
+       false
+      ],
+      [
+       "2013-2015",
+       7.7,
+       false
+      ],
+      [
+       "2014-2016",
+       8.1,
+       false
+      ],
+      [
+       "2015-2017",
+       7.8,
+       false
+      ],
+      [
+       "2016-2018",
+       7.5,
+       false
+      ],
+      [
+       "2017-2019",
+       6.4,
+       false
+      ],
+      [
+       "2018-2020",
+       6.9,
+       false
+      ],
+      [
+       "2019-2021",
+       7.2,
+       false
+      ],
+      [
+       "2020-2022",
+       7.8,
+       false
+      ],
+      [
+       "2021-2023",
+       7.9,
+       false
+      ],
+      [
+       "2022-2024",
+       8.1,
+       false
+      ],
+      [
+       "2023-2025",
+       8.0,
+       false
+      ]
+     ]
+    },
+    "fi_modsev": {
+     "latest": [
+      "2023-2025",
+      60.8,
+      false
+     ],
+     "series": null
+    },
+    "cereal_import_dep": {
+     "latest": [
+      "2021-2023",
+      99.3,
+      false
+     ],
+     "series": null
+    },
+    "water_basic": {
+     "latest": [
+      "2024",
+      88.0,
+      false
+     ],
+     "series": null
+    },
+    "sanit_basic": {
+     "latest": [
+      "2024",
+      92.0,
+      false
+     ],
+     "series": null
+    },
+    "wasting": {
+     "latest": [
+      "2018",
+      3.2,
+      false
+     ],
+     "series": null
+    },
+    "stunting": {
+     "latest": [
+      "2024",
+      6.9,
+      false
+     ],
+     "series": null
+    },
+    "anemia": {
+     "latest": [
+      "2023",
+      21.5,
+      false
+     ],
+     "series": null
+    }
+   }
+  },
+  "BRB": {
+   "name": "Barbados",
+   "m49": "052",
+   "lat": 13.18,
+   "lon": -59.56,
+   "spi_mean": -0.86,
+   "spi_dry_pct": 21.7,
+   "spi_wet_pct": 0.0,
+   "gefs_anom_mm": -71.1,
+   "fao": {
+    "pou": {
+     "latest": [
+      "2023-2025",
+      5.0,
+      false
+     ],
+     "series": [
+      [
+       "2012-2014",
+       2.5,
+       false
+      ],
+      [
+       "2013-2015",
+       2.6,
+       false
+      ],
+      [
+       "2014-2016",
+       2.5,
+       false
+      ],
+      [
+       "2015-2017",
+       2.6,
+       false
+      ],
+      [
+       "2016-2018",
+       2.6,
+       false
+      ],
+      [
+       "2017-2019",
+       2.5,
+       true
+      ],
+      [
+       "2018-2020",
+       2.9,
+       false
+      ],
+      [
+       "2019-2021",
+       3.5,
+       false
+      ],
+      [
+       "2020-2022",
+       4.4,
+       false
+      ],
+      [
+       "2021-2023",
+       4.7,
+       false
+      ],
+      [
+       "2022-2024",
+       5.0,
+       false
+      ],
+      [
+       "2023-2025",
+       5.0,
+       false
+      ]
+     ]
+    },
+    "fi_modsev": {
+     "latest": [
+      "2021-2023",
+      35.6,
+      false
+     ],
+     "series": null
+    },
+    "cereal_import_dep": {
+     "latest": [
+      "2021-2023",
+      100.0,
+      false
+     ],
+     "series": null
+    },
+    "water_basic": {
+     "latest": [
+      "2024",
+      99.0,
+      false
+     ],
+     "series": null
+    },
+    "sanit_basic": {
+     "latest": [
+      "2024",
+      98.0,
+      false
+     ],
+     "series": null
+    },
+    "wasting": {
+     "latest": [
+      "2012",
+      6.8,
+      false
+     ],
+     "series": null
+    },
+    "stunting": {
+     "latest": [
+      "2024",
+      5.8,
+      false
+     ],
+     "series": null
+    },
+    "anemia": {
+     "latest": [
+      "2023",
+      20.1,
+      false
+     ],
+     "series": null
+    }
+   }
+  },
+  "GTM": {
+   "name": "Guatemala",
+   "m49": "320",
+   "lat": 15.69,
+   "lon": -90.36,
+   "spi_mean": -1.31,
+   "spi_dry_pct": 72.8,
+   "spi_wet_pct": 0.0,
+   "gefs_anom_mm": -59.4,
+   "fao": {
+    "pou": {
+     "latest": [
+      "2023-2025",
+      12.7,
+      false
+     ],
+     "series": [
+      [
+       "2012-2014",
+       15.3,
+       false
+      ],
+      [
+       "2013-2015",
+       15.4,
+       false
+      ],
+      [
+       "2014-2016",
+       14.8,
+       false
+      ],
+      [
+       "2015-2017",
+       14.0,
+       false
+      ],
+      [
+       "2016-2018",
+       13.7,
+       false
+      ],
+      [
+       "2017-2019",
+       13.4,
+       false
+      ],
+      [
+       "2018-2020",
+       13.5,
+       false
+      ],
+      [
+       "2019-2021",
+       13.9,
+       false
+      ],
+      [
+       "2020-2022",
+       14.0,
+       false
+      ],
+      [
+       "2021-2023",
+       14.0,
+       false
+      ],
+      [
+       "2022-2024",
+       13.1,
+       false
+      ],
+      [
+       "2023-2025",
+       12.7,
+       false
+      ]
+     ]
+    },
+    "fi_modsev": {
+     "latest": [
+      "2023-2025",
+      53.0,
+      false
+     ],
+     "series": null
+    },
+    "cereal_import_dep": {
+     "latest": [
+      "2021-2023",
+      54.7,
+      false
+     ],
+     "series": null
+    },
+    "water_basic": {
+     "latest": [
+      "2024",
+      93.0,
+      false
+     ],
+     "series": null
+    },
+    "sanit_basic": {
+     "latest": [
+      "2024",
+      71.0,
+      false
+     ],
+     "series": null
+    },
+    "wasting": {
+     "latest": [
+      "2021",
+      0.8,
+      false
+     ],
+     "series": null
+    },
+    "stunting": {
+     "latest": [
+      "2024",
+      44.6,
+      false
+     ],
+     "series": null
+    },
+    "anemia": {
+     "latest": [
+      "2023",
+      10.5,
+      false
+     ],
+     "series": null
+    }
+   }
+  },
+  "HND": {
+   "name": "Honduras",
+   "m49": "340",
+   "lat": 14.83,
+   "lon": -86.62,
+   "spi_mean": -1.36,
+   "spi_dry_pct": 66.0,
+   "spi_wet_pct": 0.2,
+   "gefs_anom_mm": -84.1,
+   "fao": {
+    "pou": {
+     "latest": [
+      "2023-2025",
+      14.3,
+      false
+     ],
+     "series": [
+      [
+       "2012-2014",
+       13.8,
+       false
+      ],
+      [
+       "2013-2015",
+       14.2,
+       false
+      ],
+      [
+       "2014-2016",
+       14.2,
+       false
+      ],
+      [
+       "2015-2017",
+       13.7,
+       false
+      ],
+      [
+       "2016-2018",
+       13.2,
+       false
+      ],
+      [
+       "2017-2019",
+       13.1,
+       false
+      ],
+      [
+       "2018-2020",
+       13.5,
+       false
+      ],
+      [
+       "2019-2021",
+       13.7,
+       false
+      ],
+      [
+       "2020-2022",
+       14.2,
+       false
+      ],
+      [
+       "2021-2023",
+       14.2,
+       false
+      ],
+      [
+       "2022-2024",
+       14.6,
+       false
+      ],
+      [
+       "2023-2025",
+       14.3,
+       false
+      ]
+     ]
+    },
+    "fi_modsev": {
+     "latest": [
+      "2023-2025",
+      40.1,
+      false
+     ],
+     "series": null
+    },
+    "cereal_import_dep": {
+     "latest": [
+      "2021-2023",
+      65.7,
+      false
+     ],
+     "series": null
+    },
+    "water_basic": {
+     "latest": [
+      "2024",
+      96.0,
+      false
+     ],
+     "series": null
+    },
+    "sanit_basic": {
+     "latest": [
+      "2024",
+      88.0,
+      false
+     ],
+     "series": null
+    },
+    "wasting": {
+     "latest": [
+      "2019",
+      1.9,
+      false
+     ],
+     "series": null
+    },
+    "stunting": {
+     "latest": [
+      "2024",
+      17.9,
+      false
+     ],
+     "series": null
+    },
+    "anemia": {
+     "latest": [
+      "2023",
+      18.8,
+      false
+     ],
+     "series": null
+    }
+   }
+  },
+  "BOL": {
+   "name": "Bolivia",
+   "m49": "068",
+   "lat": -16.71,
+   "lon": -64.69,
+   "spi_mean": -0.03,
+   "spi_dry_pct": 13.9,
+   "spi_wet_pct": 11.9,
+   "gefs_anom_mm": -2.7,
+   "fao": {
+    "pou": {
+     "latest": [
+      "2023-2025",
+      19.5,
+      false
+     ],
+     "series": [
+      [
+       "2012-2014",
+       18.0,
+       false
+      ],
+      [
+       "2013-2015",
+       17.2,
+       false
+      ],
+      [
+       "2014-2016",
+       16.1,
+       false
+      ],
+      [
+       "2015-2017",
+       14.9,
+       false
+      ],
+      [
+       "2016-2018",
+       14.2,
+       false
+      ],
+      [
+       "2017-2019",
+       13.6,
+       false
+      ],
+      [
+       "2018-2020",
+       13.4,
+       false
+      ],
+      [
+       "2019-2021",
+       14.6,
+       false
+      ],
+      [
+       "2020-2022",
+       16.5,
+       false
+      ],
+      [
+       "2021-2023",
+       17.7,
+       false
+      ],
+      [
+       "2022-2024",
+       18.6,
+       false
+      ],
+      [
+       "2023-2025",
+       19.5,
+       false
+      ]
+     ]
+    },
+    "fi_modsev": {
+     "latest": [
+      "2023-2025",
+      30.8,
+      false
+     ],
+     "series": null
+    },
+    "cereal_import_dep": {
+     "latest": [
+      "2021-2023",
+      11.0,
+      false
+     ],
+     "series": null
+    },
+    "water_basic": {
+     "latest": [
+      "2024",
+      93.0,
+      false
+     ],
+     "series": null
+    },
+    "sanit_basic": {
+     "latest": [
+      "2024",
+      72.0,
+      false
+     ],
+     "series": null
+    },
+    "wasting": {
+     "latest": [
+      "2016",
+      2.0,
+      false
+     ],
+     "series": null
+    },
+    "stunting": {
+     "latest": [
+      "2024",
+      10.7,
+      false
+     ],
+     "series": null
+    },
+    "anemia": {
+     "latest": [
+      "2023",
+      24.9,
+      false
+     ],
+     "series": null
+    }
+   }
+  },
+  "BRA": {
+   "name": "Brazil",
+   "m49": "076",
+   "lat": -10.79,
+   "lon": -53.1,
+   "spi_mean": -0.72,
+   "spi_dry_pct": 40.7,
+   "spi_wet_pct": 16.1,
+   "gefs_anom_mm": -13.2,
+   "fao": {
+    "pou": {
+     "latest": [
+      "2023-2025",
+      2.5,
+      true
+     ],
+     "series": [
+      [
+       "2012-2014",
+       2.5,
+       true
+      ],
+      [
+       "2013-2015",
+       2.5,
+       true
+      ],
+      [
+       "2014-2016",
+       2.5,
+       true
+      ],
+      [
+       "2015-2017",
+       2.5,
+       true
+      ],
+      [
+       "2016-2018",
+       2.5,
+       true
+      ],
+      [
+       "2017-2019",
+       2.5,
+       true
+      ],
+      [
+       "2018-2020",
+       2.5,
+       true
+      ],
+      [
+       "2019-2021",
+       2.8,
+       false
+      ],
+      [
+       "2020-2022",
+       3.5,
+       false
+      ],
+      [
+       "2021-2023",
+       3.4,
+       false
+      ],
+      [
+       "2022-2024",
+       2.7,
+       false
+      ],
+      [
+       "2023-2025",
+       2.5,
+       true
+      ]
+     ]
+    },
+    "fi_modsev": {
+     "latest": [
+      "2023-2025",
+      9.8,
+      false
+     ],
+     "series": null
+    },
+    "cereal_import_dep": {
+     "latest": [
+      "2021-2023",
+      -30.9,
+      false
+     ],
+     "series": null
+    },
+    "water_basic": {
+     "latest": [
+      "2024",
+      100.0,
+      false
+     ],
+     "series": null
+    },
+    "sanit_basic": {
+     "latest": [
+      "2024",
+      92.0,
+      false
+     ],
+     "series": null
+    },
+    "wasting": {
+     "latest": [
+      "2019",
+      3.4,
+      false
+     ],
+     "series": null
+    },
+    "stunting": {
+     "latest": [
+      "2024",
+      8.9,
+      false
+     ],
+     "series": null
+    },
+    "anemia": {
+     "latest": [
+      "2023",
+      21.3,
+      false
+     ],
+     "series": null
+    }
+   }
+  },
+  "ARG": {
+   "name": "Argentina",
+   "m49": "032",
+   "lat": -35.38,
+   "lon": -65.18,
+   "spi_mean": 0.84,
+   "spi_dry_pct": 8.1,
+   "spi_wet_pct": 49.0,
+   "gefs_anom_mm": 8.9,
+   "fao": {
+    "pou": {
+     "latest": [
+      "2023-2025",
+      2.8,
+      false
+     ],
+     "series": [
+      [
+       "2012-2014",
+       3.2,
+       false
+      ],
+      [
+       "2013-2015",
+       2.9,
+       false
+      ],
+      [
+       "2014-2016",
+       2.9,
+       false
+      ],
+      [
+       "2015-2017",
+       3.2,
+       false
+      ],
+      [
+       "2016-2018",
+       3.5,
+       false
+      ],
+      [
+       "2017-2019",
+       3.7,
+       false
+      ],
+      [
+       "2018-2020",
+       3.6,
+       false
+      ],
+      [
+       "2019-2021",
+       3.5,
+       false
+      ],
+      [
+       "2020-2022",
+       3.3,
+       false
+      ],
+      [
+       "2021-2023",
+       3.3,
+       false
+      ],
+      [
+       "2022-2024",
+       3.2,
+       false
+      ],
+      [
+       "2023-2025",
+       2.8,
+       false
+      ]
+     ]
+    },
+    "fi_modsev": {
+     "latest": [
+      "2023-2025",
+      34.8,
+      false
+     ],
+     "series": null
+    },
+    "cereal_import_dep": {
+     "latest": [
+      "2021-2023",
+      -128.2,
+      false
+     ],
+     "series": null
+    },
+    "water_basic": {
+     "latest": [
+      "2016",
+      99.0,
+      false
+     ],
+     "series": null
+    },
+    "sanit_basic": {
+     "latest": [
+      "2016",
+      95.0,
+      false
+     ],
+     "series": null
+    },
+    "wasting": {
+     "latest": [
+      "2018",
+      1.7,
+      false
+     ],
+     "series": null
+    },
+    "stunting": {
+     "latest": [
+      "2024",
+      10.7,
+      false
+     ],
+     "series": null
+    },
+    "anemia": {
+     "latest": [
+      "2023",
+      23.5,
+      false
+     ],
+     "series": null
+    }
+   }
+  },
+  "CHL": {
+   "name": "Chile",
+   "m49": "152",
+   "lat": -37.73,
+   "lon": -71.38,
+   "spi_mean": 0.83,
+   "spi_dry_pct": 21.9,
+   "spi_wet_pct": 50.2,
+   "gefs_anom_mm": -13.1,
+   "fao": {
+    "pou": {
+     "latest": [
+      "2023-2025",
+      2.5,
+      true
+     ],
+     "series": [
+      [
+       "2012-2014",
+       3.8,
+       false
+      ],
+      [
+       "2013-2015",
+       3.6,
+       false
+      ],
+      [
+       "2014-2016",
+       3.6,
+       false
+      ],
+      [
+       "2015-2017",
+       3.6,
+       false
+      ],
+      [
+       "2016-2018",
+       3.4,
+       false
+      ],
+      [
+       "2017-2019",
+       3.3,
+       false
+      ],
+      [
+       "2018-2020",
+       2.9,
+       false
+      ],
+      [
+       "2019-2021",
+       2.6,
+       false
+      ],
+      [
+       "2020-2022",
+       2.5,
+       true
+      ],
+      [
+       "2021-2023",
+       2.5,
+       true
+      ],
+      [
+       "2022-2024",
+       2.5,
+       true
+      ],
+      [
+       "2023-2025",
+       2.5,
+       true
+      ]
+     ]
+    },
+    "fi_modsev": {
+     "latest": [
+      "2023-2025",
+      16.3,
+      false
+     ],
+     "series": null
+    },
+    "cereal_import_dep": {
+     "latest": [
+      "2021-2023",
+      61.3,
+      false
+     ],
+     "series": null
+    },
+    "water_basic": {
+     "latest": [
+      "2024",
+      99.0,
+      false
+     ],
+     "series": null
+    },
+    "sanit_basic": {
+     "latest": [
+      "2024",
+      100.0,
+      false
+     ],
+     "series": null
+    },
+    "wasting": {
+     "latest": [
+      "2014",
+      0.3,
+      false
+     ],
+     "series": null
+    },
+    "stunting": {
+     "latest": [
+      "2024",
+      1.7,
+      false
+     ],
+     "series": null
+    },
+    "anemia": {
+     "latest": [
+      "2023",
+      15.7,
+      false
+     ],
+     "series": null
+    }
+   }
+  },
+  "UKR": {
+   "name": "Ukraine",
+   "m49": "804",
+   "lat": 49.16,
+   "lon": 31.25,
+   "spi_mean": -0.82,
+   "spi_dry_pct": 35.2,
+   "spi_wet_pct": 0.0,
+   "gefs_anom_mm": -12.3,
+   "fao": {
+    "pou": {
+     "latest": [
+      "2023-2025",
+      10.8,
+      false
+     ],
+     "series": [
+      [
+       "2012-2014",
+       2.5,
+       true
+      ],
+      [
+       "2013-2015",
+       2.5,
+       true
+      ],
+      [
+       "2014-2016",
+       2.5,
+       true
+      ],
+      [
+       "2015-2017",
+       2.5,
+       true
+      ],
+      [
+       "2016-2018",
+       2.7,
+       false
+      ],
+      [
+       "2017-2019",
+       3.3,
+       false
+      ],
+      [
+       "2018-2020",
+       4.3,
+       false
+      ],
+      [
+       "2019-2021",
+       5.2,
+       false
+      ],
+      [
+       "2020-2022",
+       6.4,
+       false
+      ],
+      [
+       "2021-2023",
+       7.4,
+       false
+      ],
+      [
+       "2022-2024",
+       9.0,
+       false
+      ],
+      [
+       "2023-2025",
+       10.8,
+       false
+      ]
+     ]
+    },
+    "fi_modsev": {
+     "latest": [
+      "2023-2025",
+      35.0,
+      false
+     ],
+     "series": null
+    },
+    "cereal_import_dep": {
+     "latest": [
+      "2021-2023",
+      -298.4,
+      false
+     ],
+     "series": null
+    },
+    "water_basic": {
+     "latest": [
+      "2024",
+      94.0,
+      false
+     ],
+     "series": null
+    },
+    "sanit_basic": {
+     "latest": [
+      "2024",
+      98.0,
+      false
+     ],
+     "series": null
+    },
+    "wasting": {
+     "latest": [
+      "2000",
+      8.2,
+      false
+     ],
+     "series": null
+    },
+    "stunting": {
+     "latest": [
+      "2024",
+      11.7,
+      false
+     ],
+     "series": null
+    },
+    "anemia": {
+     "latest": [
+      "2023",
+      19.4,
+      false
+     ],
+     "series": null
+    }
+   }
+  },
+  "TUR": {
+   "name": "Turkey",
+   "m49": "792",
+   "lat": 39.06,
+   "lon": 35.17,
+   "spi_mean": 1.59,
+   "spi_dry_pct": 0.0,
+   "spi_wet_pct": 67.1,
+   "gefs_anom_mm": 2.3,
+   "fao": {
+    "pou": {
+     "latest": [
+      "2023-2025",
+      2.5,
+      true
+     ],
+     "series": [
+      [
+       "2012-2014",
+       2.5,
+       true
+      ],
+      [
+       "2013-2015",
+       2.5,
+       true
+      ],
+      [
+       "2014-2016",
+       2.5,
+       true
+      ],
+      [
+       "2015-2017",
+       2.5,
+       true
+      ],
+      [
+       "2016-2018",
+       2.5,
+       true
+      ],
+      [
+       "2017-2019",
+       2.5,
+       true
+      ],
+      [
+       "2018-2020",
+       2.5,
+       true
+      ],
+      [
+       "2019-2021",
+       2.5,
+       true
+      ],
+      [
+       "2020-2022",
+       2.5,
+       true
+      ],
+      [
+       "2021-2023",
+       2.5,
+       true
+      ],
+      [
+       "2022-2024",
+       2.5,
+       true
+      ],
+      [
+       "2023-2025",
+       2.5,
+       true
+      ]
+     ]
+    },
+    "cereal_import_dep": {
+     "latest": [
+      "2021-2023",
+      35.0,
+      false
+     ],
+     "series": null
+    },
+    "water_basic": {
+     "latest": [
+      "2024",
+      96.0,
+      false
+     ],
+     "series": null
+    },
+    "sanit_basic": {
+     "latest": [
+      "2024",
+      99.0,
+      false
+     ],
+     "series": null
+    },
+    "wasting": {
+     "latest": [
+      "2018",
+      1.7,
+      false
+     ],
+     "series": null
+    },
+    "stunting": {
+     "latest": [
+      "2024",
+      5.5,
+      false
+     ],
+     "series": null
+    },
+    "anemia": {
+     "latest": [
+      "2023",
+      29.3,
+      false
+     ],
+     "series": null
+    }
+   }
+  },
+  "ALB": {
+   "name": "Albania",
+   "m49": "008",
+   "lat": 41.14,
+   "lon": 20.05,
+   "spi_mean": -0.73,
+   "spi_dry_pct": 32.7,
+   "spi_wet_pct": 0.0,
+   "gefs_anom_mm": -29.4,
+   "fao": {
+    "pou": {
+     "latest": [
+      "2023-2025",
+      5.6,
+      false
+     ],
+     "series": [
+      [
+       "2012-2014",
+       4.6,
+       false
+      ],
+      [
+       "2013-2015",
+       4.6,
+       false
+      ],
+      [
+       "2014-2016",
+       4.5,
+       false
+      ],
+      [
+       "2015-2017",
+       4.4,
+       false
+      ],
+      [
+       "2016-2018",
+       4.3,
+       false
+      ],
+      [
+       "2017-2019",
+       4.3,
+       false
+      ],
+      [
+       "2018-2020",
+       4.3,
+       false
+      ],
+      [
+       "2019-2021",
+       5.4,
+       false
+      ],
+      [
+       "2020-2022",
+       5.8,
+       false
+      ],
+      [
+       "2021-2023",
+       6.2,
+       false
+      ],
+      [
+       "2022-2024",
+       5.5,
+       false
+      ],
+      [
+       "2023-2025",
+       5.6,
+       false
+      ]
+     ]
+    },
+    "fi_modsev": {
+     "latest": [
+      "2023-2025",
+      35.1,
+      false
+     ],
+     "series": null
+    },
+    "cereal_import_dep": {
+     "latest": [
+      "2021-2023",
+      36.4,
+      false
+     ],
+     "series": null
+    },
+    "water_basic": {
+     "latest": [
+      "2024",
+      95.0,
+      false
+     ],
+     "series": null
+    },
+    "sanit_basic": {
+     "latest": [
+      "2024",
+      99.0,
+      false
+     ],
+     "series": null
+    },
+    "wasting": {
+     "latest": [
+      "2017",
+      1.6,
+      false
+     ],
+     "series": null
+    },
+    "stunting": {
+     "latest": [
+      "2024",
+      7.4,
+      false
+     ],
+     "series": null
+    },
+    "anemia": {
+     "latest": [
+      "2023",
+      24.7,
+      false
+     ],
+     "series": null
+    }
+   }
+  },
+  "GRC": {
+   "name": "Greece",
+   "m49": "300",
+   "lat": 39.07,
+   "lon": 22.96,
+   "spi_mean": 0.15,
+   "spi_dry_pct": 2.8,
+   "spi_wet_pct": 13.0,
+   "gefs_anom_mm": 9.6,
+   "fao": {
+    "pou": {
+     "latest": [
+      "2023-2025",
+      2.5,
+      true
+     ],
+     "series": [
+      [
+       "2012-2014",
+       2.5,
+       true
+      ],
+      [
+       "2013-2015",
+       2.5,
+       true
+      ],
+      [
+       "2014-2016",
+       2.5,
+       true
+      ],
+      [
+       "2015-2017",
+       2.5,
+       true
+      ],
+      [
+       "2016-2018",
+       2.5,
+       true
+      ],
+      [
+       "2017-2019",
+       2.5,
+       true
+      ],
+      [
+       "2018-2020",
+       2.5,
+       true
+      ],
+      [
+       "2019-2021",
+       2.5,
+       true
+      ],
+      [
+       "2020-2022",
+       2.5,
+       true
+      ],
+      [
+       "2021-2023",
+       2.5,
+       true
+      ],
+      [
+       "2022-2024",
+       2.5,
+       true
+      ],
+      [
+       "2023-2025",
+       2.5,
+       true
+      ]
+     ]
+    },
+    "fi_modsev": {
+     "latest": [
+      "2023-2025",
+      8.3,
+      false
+     ],
+     "series": null
+    },
+    "cereal_import_dep": {
+     "latest": [
+      "2021-2023",
+      34.0,
+      false
+     ],
+     "series": null
+    },
+    "water_basic": {
+     "latest": [
+      "2024",
+      100.0,
+      false
+     ],
+     "series": null
+    },
+    "sanit_basic": {
+     "latest": [
+      "2024",
+      99.0,
+      false
+     ],
+     "series": null
+    },
+    "wasting": {
+     "latest": [
+      "2003",
+      1.5,
+      false
+     ],
+     "series": null
+    },
+    "stunting": {
+     "latest": [
+      "2024",
+      2.0,
+      false
+     ],
+     "series": null
+    },
+    "anemia": {
+     "latest": [
+      "2023",
+      15.6,
+      false
+     ],
+     "series": null
+    }
+   }
+  },
+  "EGY": {
+   "name": "Egypt",
+   "m49": "818",
+   "lat": 26.5,
+   "lon": 29.86,
+   "spi_mean": 0.14,
+   "spi_dry_pct": 0.0,
+   "spi_wet_pct": 5.7,
+   "gefs_anom_mm": -0.1,
+   "fao": {
+    "pou": {
+     "latest": [
+      "2023-2025",
+      8.4,
+      false
+     ],
+     "series": [
+      [
+       "2012-2014",
+       6.1,
+       false
+      ],
+      [
+       "2013-2015",
+       6.4,
+       false
+      ],
+      [
+       "2014-2016",
+       6.5,
+       false
+      ],
+      [
+       "2015-2017",
+       6.6,
+       false
+      ],
+      [
+       "2016-2018",
+       6.5,
+       false
+      ],
+      [
+       "2017-2019",
+       6.4,
+       false
+      ],
+      [
+       "2018-2020",
+       6.5,
+       false
+      ],
+      [
+       "2019-2021",
+       7.1,
+       false
+      ],
+      [
+       "2020-2022",
+       8.0,
+       false
+      ],
+      [
+       "2021-2023",
+       8.5,
+       false
+      ],
+      [
+       "2022-2024",
+       8.6,
+       false
+      ],
+      [
+       "2023-2025",
+       8.4,
+       false
+      ]
+     ]
+    },
+    "fi_modsev": {
+     "latest": [
+      "2023-2025",
+      32.7,
+      false
+     ],
+     "series": null
+    },
+    "cereal_import_dep": {
+     "latest": [
+      "2021-2023",
+      42.8,
+      false
+     ],
+     "series": null
+    },
+    "water_basic": {
+     "latest": [
+      "2024",
+      97.0,
+      false
+     ],
+     "series": null
+    },
+    "sanit_basic": {
+     "latest": [
+      "2024",
+      97.0,
+      false
+     ],
+     "series": null
+    },
+    "wasting": {
+     "latest": [
+      "2021",
+      3.3,
+      false
+     ],
+     "series": null
+    },
+    "stunting": {
+     "latest": [
+      "2024",
+      12.9,
+      false
+     ],
+     "series": null
+    },
+    "anemia": {
+     "latest": [
+      "2023",
+      32.7,
+      false
+     ],
+     "series": null
+    }
+   }
+  },
+  "SYR": {
+   "name": "Syria",
+   "m49": "760",
+   "lat": 35.02,
+   "lon": 38.5,
+   "spi_mean": 2.6,
+   "spi_dry_pct": 0.0,
+   "spi_wet_pct": 89.8,
+   "gefs_anom_mm": 15.3,
+   "fao": {
+    "pou": {
+     "latest": [
+      "2023-2025",
+      40.8,
+      false
+     ],
+     "series": [
+      [
+       "2012-2014",
+       9.0,
+       false
+      ],
+      [
+       "2013-2015",
+       10.1,
+       false
+      ],
+      [
+       "2014-2016",
+       12.1,
+       false
+      ],
+      [
+       "2015-2017",
+       14.8,
+       false
+      ],
+      [
+       "2016-2018",
+       18.9,
+       false
+      ],
+      [
+       "2017-2019",
+       23.3,
+       false
+      ],
+      [
+       "2018-2020",
+       28.1,
+       false
+      ],
+      [
+       "2019-2021",
+       31.3,
+       false
+      ],
+      [
+       "2020-2022",
+       33.7,
+       false
+      ],
+      [
+       "2021-2023",
+       35.5,
+       false
+      ],
+      [
+       "2022-2024",
+       38.2,
+       false
+      ],
+      [
+       "2023-2025",
+       40.8,
+       false
+      ]
+     ]
+    },
+    "cereal_import_dep": {
+     "latest": [
+      "2021-2023",
+      49.8,
+      false
+     ],
+     "series": null
+    },
+    "water_basic": {
+     "latest": [
+      "2024",
+      94.0,
+      false
+     ],
+     "series": null
+    },
+    "sanit_basic": {
+     "latest": [
+      "2024",
+      96.0,
+      false
+     ],
+     "series": null
+    },
+    "wasting": {
+     "latest": [
+      "2010",
+      11.5,
+      false
+     ],
+     "series": null
+    },
+    "stunting": {
+     "latest": [
+      "2024",
+      23.5,
+      false
+     ],
+     "series": null
+    },
+    "anemia": {
+     "latest": [
+      "2023",
+      31.0,
+      false
+     ],
+     "series": null
+    }
+   }
+  },
+  "YEM": {
+   "name": "Yemen",
+   "m49": "887",
+   "lat": 15.91,
+   "lon": 47.59,
+   "spi_mean": -0.68,
+   "spi_dry_pct": 23.8,
+   "spi_wet_pct": 0.5,
+   "gefs_anom_mm": -1.4,
+   "fao": {
+    "fi_modsev": {
+     "latest": [
+      "2023-2025",
+      75.3,
+      false
+     ],
+     "series": null
+    },
+    "cereal_import_dep": {
+     "latest": [
+      "2021-2023",
+      93.4,
+      false
+     ],
+     "series": null
+    },
+    "water_basic": {
+     "latest": [
+      "2024",
+      75.0,
+      false
+     ],
+     "series": null
+    },
+    "sanit_basic": {
+     "latest": [
+      "2024",
+      63.0,
+      false
+     ],
+     "series": null
+    },
+    "wasting": {
+     "latest": [
+      "2022",
+      16.8,
+      false
+     ],
+     "series": null
+    },
+    "stunting": {
+     "latest": [
+      "2024",
+      47.4,
+      false
+     ],
+     "series": null
+    },
+    "anemia": {
+     "latest": [
+      "2023",
+      36.4,
+      false
+     ],
+     "series": null
+    }
+   }
+  },
+  "LBN": {
+   "name": "Lebanon",
+   "m49": "422",
+   "lat": 33.92,
+   "lon": 35.88,
+   "spi_mean": 0.52,
+   "spi_dry_pct": 1.5,
+   "spi_wet_pct": 23.8,
+   "gefs_anom_mm": 2.6,
+   "fao": {
+    "pou": {
+     "latest": [
+      "2023-2025",
+      11.1,
+      false
+     ],
+     "series": [
+      [
+       "2012-2014",
+       5.2,
+       false
+      ],
+      [
+       "2013-2015",
+       5.8,
+       false
+      ],
+      [
+       "2014-2016",
+       6.1,
+       false
+      ],
+      [
+       "2015-2017",
+       6.1,
+       false
+      ],
+      [
+       "2016-2018",
+       5.9,
+       false
+      ],
+      [
+       "2017-2019",
+       5.9,
+       false
+      ],
+      [
+       "2018-2020",
+       7.4,
+       false
+      ],
+      [
+       "2019-2021",
+       9.7,
+       false
+      ],
+      [
+       "2020-2022",
+       11.6,
+       false
+      ],
+      [
+       "2021-2023",
+       11.9,
+       false
+      ],
+      [
+       "2022-2024",
+       11.4,
+       false
+      ],
+      [
+       "2023-2025",
+       11.1,
+       false
+      ]
+     ]
+    },
+    "fi_modsev": {
+     "latest": [
+      "2023-2025",
+      47.7,
+      false
+     ],
+     "series": null
+    },
+    "cereal_import_dep": {
+     "latest": [
+      "2021-2023",
+      86.6,
+      false
+     ],
+     "series": null
+    },
+    "water_basic": {
+     "latest": [
+      "2024",
+      93.0,
+      false
+     ],
+     "series": null
+    },
+    "sanit_basic": {
+     "latest": [
+      "2024",
+      99.0,
+      false
+     ],
+     "series": null
+    },
+    "wasting": {
+     "latest": [
+      "2023",
+      1.3,
+      false
+     ],
+     "series": null
+    },
+    "stunting": {
+     "latest": [
+      "2024",
+      10.1,
+      false
+     ],
+     "series": null
+    },
+    "anemia": {
+     "latest": [
+      "2023",
+      34.0,
+      false
+     ],
+     "series": null
+    }
+   }
+  },
+  "JOR": {
+   "name": "Jordan",
+   "m49": "400",
+   "lat": 31.25,
+   "lon": 36.77,
+   "spi_mean": 1.79,
+   "spi_dry_pct": 0.0,
+   "spi_wet_pct": 50.5,
+   "gefs_anom_mm": 2.5,
+   "fao": {
+    "pou": {
+     "latest": [
+      "2023-2025",
+      12.2,
+      false
+     ],
+     "series": [
+      [
+       "2012-2014",
+       7.8,
+       false
+      ],
+      [
+       "2013-2015",
+       7.2,
+       false
+      ],
+      [
+       "2014-2016",
+       7.7,
+       false
+      ],
+      [
+       "2015-2017",
+       9.4,
+       false
+      ],
+      [
+       "2016-2018",
+       11.1,
+       false
+      ],
+      [
+       "2017-2019",
+       13.9,
+       false
+      ],
+      [
+       "2018-2020",
+       17.2,
+       false
+      ],
+      [
+       "2019-2021",
+       20.0,
+       false
+      ],
+      [
+       "2020-2022",
+       18.7,
+       false
+      ],
+      [
+       "2021-2023",
+       16.4,
+       false
+      ],
+      [
+       "2022-2024",
+       13.2,
+       false
+      ],
+      [
+       "2023-2025",
+       12.2,
+       false
+      ]
+     ]
+    },
+    "cereal_import_dep": {
+     "latest": [
+      "2021-2023",
+      100.0,
+      false
+     ],
+     "series": null
+    },
+    "water_basic": {
+     "latest": [
+      "2024",
+      99.0,
+      false
+     ],
+     "series": null
+    },
+    "sanit_basic": {
+     "latest": [
+      "2024",
+      96.0,
+      false
+     ],
+     "series": null
+    },
+    "wasting": {
+     "latest": [
+      "2023",
+      2.3,
+      false
+     ],
+     "series": null
+    },
+    "stunting": {
+     "latest": [
+      "2024",
+      7.7,
+      false
+     ],
+     "series": null
+    },
+    "anemia": {
+     "latest": [
+      "2023",
+      33.0,
+      false
+     ],
+     "series": null
+    }
+   }
+  },
+  "MEX": {
+   "name": "Mexico",
+   "m49": "484",
+   "lat": 23.95,
+   "lon": -102.52,
+   "spi_mean": -0.49,
+   "spi_dry_pct": 32.1,
+   "spi_wet_pct": 7.7,
+   "gefs_anom_mm": 2.7,
+   "fao": {
+    "pou": {
+     "latest": [
+      "2023-2025",
+      3.1,
+      false
+     ],
+     "series": [
+      [
+       "2012-2014",
+       4.0,
+       false
+      ],
+      [
+       "2013-2015",
+       4.0,
+       false
+      ],
+      [
+       "2014-2016",
+       3.9,
+       false
+      ],
+      [
+       "2015-2017",
+       3.9,
+       false
+      ],
+      [
+       "2016-2018",
+       3.8,
+       false
+      ],
+      [
+       "2017-2019",
+       3.7,
+       false
+      ],
+      [
+       "2018-2020",
+       3.6,
+       false
+      ],
+      [
+       "2019-2021",
+       3.3,
+       false
+      ],
+      [
+       "2020-2022",
+       3.2,
+       false
+      ],
+      [
+       "2021-2023",
+       3.3,
+       false
+      ],
+      [
+       "2022-2024",
+       3.3,
+       false
+      ],
+      [
+       "2023-2025",
+       3.1,
+       false
+      ]
+     ]
+    },
+    "fi_modsev": {
+     "latest": [
+      "2023-2025",
+      17.1,
+      false
+     ],
+     "series": null
+    },
+    "cereal_import_dep": {
+     "latest": [
+      "2021-2023",
+      37.6,
+      false
+     ],
+     "series": null
+    },
+    "water_basic": {
+     "latest": [
+      "2024",
+      100.0,
+      false
+     ],
+     "series": null
+    },
+    "sanit_basic": {
+     "latest": [
+      "2024",
+      93.0,
+      false
+     ],
+     "series": null
+    },
+    "wasting": {
+     "latest": [
+      "2022",
+      1.0,
+      false
+     ],
+     "series": null
+    },
+    "stunting": {
+     "latest": [
+      "2024",
+      13.1,
+      false
+     ],
+     "series": null
+    },
+    "anemia": {
+     "latest": [
+      "2023",
+      13.2,
+      false
+     ],
+     "series": null
+    }
+   }
+  },
+  "USA": {
+   "name": "United States of America",
+   "m49": "840",
+   "lat": 45.68,
+   "lon": -112.46,
+   "spi_mean": 0.03,
+   "spi_dry_pct": 16.1,
+   "spi_wet_pct": 17.3,
+   "gefs_anom_mm": -1.2,
+   "fao": {
+    "pou": {
+     "latest": [
+      "2023-2025",
+      2.5,
+      true
+     ],
+     "series": [
+      [
+       "2012-2014",
+       2.5,
+       true
+      ],
+      [
+       "2013-2015",
+       2.5,
+       true
+      ],
+      [
+       "2014-2016",
+       2.5,
+       true
+      ],
+      [
+       "2015-2017",
+       2.5,
+       true
+      ],
+      [
+       "2016-2018",
+       2.5,
+       true
+      ],
+      [
+       "2017-2019",
+       2.5,
+       true
+      ],
+      [
+       "2018-2020",
+       2.5,
+       true
+      ],
+      [
+       "2019-2021",
+       2.5,
+       true
+      ],
+      [
+       "2020-2022",
+       2.5,
+       true
+      ],
+      [
+       "2021-2023",
+       2.5,
+       true
+      ],
+      [
+       "2022-2024",
+       2.5,
+       true
+      ],
+      [
+       "2023-2025",
+       2.5,
+       true
+      ]
+     ]
+    },
+    "fi_modsev": {
+     "latest": [
+      "2023-2025",
+      11.0,
+      false
+     ],
+     "series": null
+    },
+    "cereal_import_dep": {
+     "latest": [
+      "2021-2023",
+      -20.3,
+      false
+     ],
+     "series": null
+    },
+    "water_basic": {
+     "latest": [
+      "2024",
+      100.0,
+      false
+     ],
+     "series": null
+    },
+    "sanit_basic": {
+     "latest": [
+      "2024",
+      100.0,
+      false
+     ],
+     "series": null
+    },
+    "wasting": {
+     "latest": [
+      "2022",
+      0.1,
+      false
+     ],
+     "series": null
+    },
+    "stunting": {
+     "latest": [
+      "2024",
+      4.2,
+      false
+     ],
+     "series": null
+    },
+    "anemia": {
+     "latest": [
+      "2023",
+      15.0,
+      false
+     ],
+     "series": null
+    }
+   }
+  },
+  "CAN": {
+   "name": "Canada",
+   "m49": "124",
+   "lat": 61.36,
+   "lon": -98.31,
+   "spi_mean": -0.06,
+   "spi_dry_pct": 12.4,
+   "spi_wet_pct": 11.0,
+   "gefs_anom_mm": -13.2,
+   "fao": {
+    "pou": {
+     "latest": [
+      "2023-2025",
+      2.5,
+      true
+     ],
+     "series": [
+      [
+       "2012-2014",
+       2.5,
+       true
+      ],
+      [
+       "2013-2015",
+       2.5,
+       true
+      ],
+      [
+       "2014-2016",
+       2.5,
+       true
+      ],
+      [
+       "2015-2017",
+       2.5,
+       true
+      ],
+      [
+       "2016-2018",
+       2.5,
+       true
+      ],
+      [
+       "2017-2019",
+       2.5,
+       true
+      ],
+      [
+       "2018-2020",
+       2.5,
+       true
+      ],
+      [
+       "2019-2021",
+       2.5,
+       true
+      ],
+      [
+       "2020-2022",
+       2.5,
+       true
+      ],
+      [
+       "2021-2023",
+       2.5,
+       true
+      ],
+      [
+       "2022-2024",
+       2.5,
+       true
+      ],
+      [
+       "2023-2025",
+       2.5,
+       true
+      ]
+     ]
+    },
+    "fi_modsev": {
+     "latest": [
+      "2023-2025",
+      10.7,
+      false
+     ],
+     "series": null
+    },
+    "cereal_import_dep": {
+     "latest": [
+      "2021-2023",
+      -116.9,
+      false
+     ],
+     "series": null
+    },
+    "water_basic": {
+     "latest": [
+      "2024",
+      98.0,
+      false
+     ],
+     "series": null
+    },
+    "sanit_basic": {
+     "latest": [
+      "2024",
+      99.0,
+      false
+     ],
+     "series": null
+    },
+    "anemia": {
+     "latest": [
+      "2023",
+      14.0,
+      false
+     ],
+     "series": null
+    }
+   }
+  }
+ }
+}

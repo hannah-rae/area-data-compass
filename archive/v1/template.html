@@ -1,0 +1,729 @@
+<title>Area Data Compass</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: an area-planning workbench. Pick area -> compare countries on map + table -> drill into one country by topic: live signals, draft notes, and the data products worth knowing. */
+:root {
+  --bg: #f2f4f1; --surface: #ffffff; --surface-2: #f7f8f6; --ink: #17242a; --muted: #586769; --line: #d8ded9;
+  --accent: #1f4f8a; --accent-ink: #ffffff; --accent-soft: #e2eaf4;
+  --land: #e1e5df; --land-stroke: #ccd3cd; --sea: #eaf0ef; --near: #cfd4cb;
+  --ok: #2c7a67; --warn: #a8621f; --crit: #a3361f; --ok-soft: #e1f0eb; --warn-soft: #f6eadc; --crit-soft: #f6e1dc;
+  --f-display: "Newsreader", Georgia, "Times New Roman", serif;
+  --f-body: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  --r: 6px;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #10171a; --surface: #172126; --surface-2: #1c282d; --ink: #e5ebe8; --muted: #9caaa9; --line: #2b3a3e;
+  --accent: #86b4ec; --accent-ink: #0d1a2a; --accent-soft: #1d2f45;
+  --land: #25312f; --land-stroke: #34433f; --sea: #131c1f; --near: #59615a;
+  --ok: #6cc4ad; --warn: #e3a467; --crit: #f08a70; --ok-soft: #173029; --warn-soft: #33261a; --crit-soft: #37201b;
+  color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --bg: #10171a; --surface: #172126; --surface-2: #1c282d; --ink: #e5ebe8; --muted: #9caaa9; --line: #2b3a3e;
+  --accent: #86b4ec; --accent-ink: #0d1a2a; --accent-soft: #1d2f45;
+  --land: #25312f; --land-stroke: #34433f; --sea: #131c1f; --near: #59615a;
+  --ok: #6cc4ad; --warn: #e3a467; --crit: #f08a70; --ok-soft: #173029; --warn-soft: #33261a; --crit-soft: #37201b;
+  color-scheme: dark; }
+
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 15px; line-height: 1.5; }
+.wrap { max-width: 1260px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3 { text-wrap: balance; margin: 0; }
+a { color: var(--accent); }
+button { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.mono, .num { font-family: var(--f-mono); font-variant-numeric: tabular-nums; }
+.eyebrow { font-size: 11.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+
+/* Header */
+.top { border-bottom: 1px solid var(--line); background: var(--surface); }
+.top .wrap { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 24px; padding-block: 18px 14px; }
+.brand { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.brand h1 { font-family: var(--f-display); font-weight: 600; font-size: 28px; letter-spacing: -.01em; }
+.brand .tag { color: var(--muted); font-size: 14px; }
+.mock { font-size: 12px; color: var(--warn); background: var(--warn-soft); border-radius: 99px; padding: 2px 10px; font-weight: 600; white-space: nowrap; }
+
+/* Area selector */
+.areas { padding-block: 18px 6px; }
+.area-pills { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.pill { border: 1px solid var(--line); background: var(--surface); border-radius: 99px; padding: 6px 14px; cursor: pointer; font-size: 14px; font-weight: 500; }
+.pill:hover { border-color: var(--accent); }
+.pill[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+
+.area-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: 20px 40px; padding-block: 22px 18px; align-items: start; }
+.area-head h2 { font-family: var(--f-display); font-weight: 500; font-size: 34px; line-height: 1.1; letter-spacing: -.01em; }
+.area-head p { color: var(--muted); margin: 8px 0 0; max-width: 60ch; }
+.prio-list { list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 6px; }
+.prio-list li { display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: baseline; justify-content: space-between; border-bottom: 1px dashed var(--line); padding-block: 5px; }
+.prio-list li span:first-child { min-width: 0; }
+.chip { font-size: 12px; border-radius: 99px; padding: 2px 9px; background: var(--accent-soft); color: var(--accent); border: 0; cursor: pointer; white-space: nowrap; font-weight: 600; }
+.chip:hover { text-decoration: underline; }
+
+/* Overview grid */
+.overview { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 16px; }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); min-width: 0; }
+.panel-h { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 12px 16px 0; flex-wrap: wrap; }
+.panel-h h3 { font-size: 15px; font-weight: 600; }
+.panel-h .src { font-size: 12px; color: var(--muted); }
+.map-box { padding: 8px 12px 12px; }
+svg.map { width: 100%; height: auto; display: block; background: var(--sea); border-radius: 4px; aspect-ratio: 16 / 10; max-width: 100%; }
+svg.map path { fill: var(--land); stroke: var(--land-stroke); vector-effect: non-scaling-stroke; stroke-width: .6; }
+svg.map path.feat { stroke: var(--ink); stroke-width: .8; cursor: pointer; }
+svg.map path.sel { stroke-width: 2.2; }
+svg.map .dot { stroke: var(--ink); vector-effect: non-scaling-stroke; stroke-width: 1; cursor: pointer; }
+svg.map .dot.sel { stroke-width: 2.5; }
+svg.map text { fill: var(--ink); font-family: var(--f-body); paint-order: stroke; stroke: var(--sea); stroke-width: 3px; stroke-linejoin: round; font-weight: 600; pointer-events: none; }
+.legend { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 12px; color: var(--muted); padding: 10px 4px 0; }
+.legend i { display: inline-block; width: 12px; height: 12px; border-radius: 2px; vertical-align: -2px; margin-right: 5px; border: 1px solid var(--line); }
+
+.tbl-wrap { overflow-x: auto; padding: 8px 4px 8px; }
+table { border-collapse: collapse; width: 100%; font-size: 13.5px; }
+th { text-align: right; font-weight: 600; font-size: 11.5px; color: var(--muted); padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: bottom; line-height: 1.25; }
+th:first-child, td:first-child { text-align: left; }
+td { padding: 7px 10px; border-bottom: 1px solid var(--line); text-align: right; white-space: nowrap; }
+tbody tr { cursor: pointer; }
+tbody tr:hover { background: var(--surface-2); }
+tbody tr[aria-selected="true"] { background: var(--accent-soft); }
+tbody tr[aria-selected="true"] td:first-child { box-shadow: inset 3px 0 0 var(--accent); }
+td .sw { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; vertical-align: 0; }
+td.hi { color: var(--crit); font-weight: 600; }
+td.md { color: var(--warn); font-weight: 600; }
+td.na { color: var(--muted); }
+.tbl-note { font-size: 12px; color: var(--muted); padding: 0 14px 12px; }
+
+/* Focus */
+.focus { margin-top: 28px; padding-block: 22px 8px; border-top: 2px solid var(--ink); }
+.focus-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 20px; }
+.focus-head h2 { font-family: var(--f-display); font-weight: 500; font-size: 30px; }
+.focus-head select { font: inherit; padding: 6px 10px; border-radius: var(--r); border: 1px solid var(--line); background: var(--surface); color: var(--ink); }
+.tabs { display: flex; gap: 2px; margin-top: 16px; border-bottom: 1px solid var(--line); overflow-x: auto; }
+.tab { border: 0; background: none; padding: 10px 14px 9px; cursor: pointer; font-weight: 600; color: var(--muted); border-bottom: 3px solid transparent; white-space: nowrap; display: flex; align-items: center; gap: 7px; }
+.tab:hover { color: var(--ink); }
+.tab[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--accent); }
+.tab .pd { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+.tab-intro { margin: 14px 0 0; color: var(--muted); max-width: 80ch; font-size: 14px; }
+.tab-intro b { color: var(--ink); font-weight: 600; }
+
+.tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 10px; margin-top: 16px; }
+.tile { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 12px 14px; display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.tile .lab { font-size: 12.5px; color: var(--muted); font-weight: 500; }
+.tile .val { font-family: var(--f-mono); font-size: 26px; font-weight: 500; line-height: 1.15; font-variant-numeric: tabular-nums; }
+.tile .val small { font-size: 14px; color: var(--muted); margin-left: 2px; }
+.tile .state { align-self: flex-start; font-size: 11.5px; font-weight: 700; border-radius: 99px; padding: 1px 8px; }
+.st-ok { background: var(--ok-soft); color: var(--ok); }
+.st-warn { background: var(--warn-soft); color: var(--warn); }
+.st-crit { background: var(--crit-soft); color: var(--crit); }
+.st-none { background: var(--surface-2); color: var(--muted); }
+.tile .meta { font-size: 11.5px; color: var(--muted); margin-top: auto; padding-top: 4px; }
+.tile.empty { border-style: dashed; background: transparent; }
+.tile.empty .val { font-size: 15px; font-family: var(--f-body); color: var(--muted); font-weight: 500; }
+.spark { width: 100%; height: 34px; display: block; }
+
+.cols { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr); gap: 20px; margin-top: 24px; align-items: start; }
+.sec-h { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; margin-bottom: 10px; flex-wrap: wrap; }
+.sec-h h3 { font-size: 17px; font-weight: 700; }
+.sec-h span { font-size: 12.5px; color: var(--muted); }
+.products { display: grid; gap: 10px; }
+.prod { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 14px 16px; display: grid; gap: 6px; }
+.prod-top { display: flex; justify-content: space-between; gap: 10px; align-items: baseline; flex-wrap: wrap; }
+.prod h4 { margin: 0; font-size: 15.5px; }
+.prod h4 a { color: var(--ink); text-decoration: none; }
+.prod h4 a:hover { color: var(--accent); text-decoration: underline; }
+.prod .prov { font-size: 12.5px; color: var(--muted); font-weight: 500; }
+.prod p { margin: 0; font-size: 14px; max-width: 75ch; }
+.prod .q { font-size: 13.5px; color: var(--muted); }
+.prod .q b { color: var(--ink); font-weight: 600; }
+.prod .facts { display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: 12px; color: var(--muted); }
+.prod .facts span b { color: var(--ink); font-weight: 600; }
+.cov { font-size: 11.5px; font-weight: 700; border-radius: 99px; padding: 2px 9px; white-space: nowrap; }
+.live { font-size: 11px; font-weight: 700; color: var(--accent); background: var(--accent-soft); border-radius: 99px; padding: 1px 8px; margin-left: 6px; vertical-align: 1px; }
+.prod.dim { opacity: .62; }
+
+.notes { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 14px 16px; position: sticky; top: calc(env(safe-area-inset-top, 0px) + 12px); }
+.notes ul { margin: 6px 0 0; padding-left: 18px; display: grid; gap: 8px; font-size: 14px; }
+.notes .disc { font-size: 12px; color: var(--muted); margin-top: 12px; border-top: 1px solid var(--line); padding-top: 10px; }
+.ask { margin-top: 12px; display: grid; gap: 6px; }
+.ask label { font-size: 12.5px; font-weight: 600; }
+.ask .row { display: flex; gap: 6px; }
+.ask input { flex: 1; min-width: 0; font: inherit; font-size: 14px; padding: 7px 10px; border: 1px solid var(--line); border-radius: var(--r); background: var(--surface-2); color: var(--ink); }
+.ask button { border: 0; background: var(--accent); color: var(--accent-ink); border-radius: var(--r); padding: 7px 12px; font-weight: 600; cursor: pointer; }
+.ask .out { font-size: 13px; color: var(--muted); }
+
+footer { margin-top: 40px; border-top: 1px solid var(--line); background: var(--surface); }
+footer .wrap { padding-block: 22px 30px; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px 32px; font-size: 13px; color: var(--muted); }
+footer h3 { font-size: 13px; color: var(--ink); margin-bottom: 6px; }
+footer p { margin: 0 0 8px; }
+
+@media (max-width: 900px) {
+  .area-head, .overview, .cols { grid-template-columns: minmax(0, 1fr); }
+  .notes { position: static; }
+  .area-head h2 { font-size: 28px; }
+}
+@media (prefers-reduced-motion: no-preference) { .pill, .tab, tbody tr { transition: background-color .12s, color .12s, border-color .12s; } }
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <div class="brand">
+      <h1>Area Data Compass</h1>
+      <span class="tag">What data exists for the places you serve, and what it says right now</span>
+    </div>
+    <span class="mock">Prototype · sample of countries per area</span>
+  </div>
+</header>
+
+<main>
+  <section class="wrap areas" aria-label="Choose an area">
+    <div class="eyebrow">Humanitarian area</div>
+    <div class="area-pills" id="areaPills"></div>
+  </section>
+
+  <section class="wrap area-head">
+    <div>
+      <h2 id="areaName"></h2>
+      <p id="areaBlurb"></p>
+    </div>
+    <div>
+      <div class="eyebrow">2025 area priorities <a id="areaLink" href="#" target="_blank" rel="noopener" style="text-transform:none;letter-spacing:0;font-weight:500;margin-left:6px">Caring Report ↗</a></div>
+      <ul class="prio-list" id="prioList"></ul>
+    </div>
+  </section>
+
+  <section class="wrap overview" aria-label="Area overview">
+    <div class="panel">
+      <div class="panel-h"><h3>Rainfall over the last three months</h3><span class="src" id="spiWindow"></span></div>
+      <div class="map-box">
+        <svg class="map" id="map" role="img" aria-label="Map of the selected area, countries colored by rainfall anomaly"></svg>
+        <div class="legend" id="legend"></div>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="panel-h"><h3>Compare countries</h3><span class="src">Select a row to focus</span></div>
+      <div class="tbl-wrap">
+        <table id="cmp">
+          <thead><tr>
+            <th>Country</th>
+            <th>Rain, 3 mo<br>(SPI)</th>
+            <th>Area drier<br>than normal</th>
+            <th>Next 15 days<br>vs normal</th>
+            <th>Under-<br>nourished</th>
+            <th>Child<br>stunting</th>
+            <th>Basic<br>water</th>
+          </tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <div class="tbl-note">Rain: CHC CHIRPS SPI and CHIRPS-GEFS forecast, averaged over each country. Nutrition and water: FAOSTAT food security indicators. Red marks values at or past common alert thresholds.</div>
+    </div>
+  </section>
+
+  <section class="wrap focus" aria-label="Country focus">
+    <div class="focus-head">
+      <div>
+        <div class="eyebrow" id="focusEyebrow"></div>
+        <h2 id="focusName"></h2>
+      </div>
+      <label class="eyebrow" for="countrySel" style="display:flex;gap:8px;align-items:center">Country
+        <select id="countrySel"></select>
+      </label>
+    </div>
+    <div class="tabs" role="tablist" id="tabs"></div>
+    <p class="tab-intro" id="tabIntro"></p>
+    <div class="tiles" id="tiles"></div>
+
+    <div class="cols">
+      <div>
+        <div class="sec-h"><h3>Data products to know about</h3><span id="prodCount"></span></div>
+        <div class="products" id="products"></div>
+      </div>
+      <aside class="notes" aria-label="Draft planning notes">
+        <div class="eyebrow">Draft planning notes</div>
+        <ul id="notes"></ul>
+        <div class="ask">
+          <label for="askBox">Ask about this country (prototype)</label>
+          <div class="row"><input id="askBox" placeholder="e.g. When is the main planting season?"><button id="askBtn" type="button">Ask</button></div>
+          <div class="out" id="askOut"></div>
+        </div>
+        <div class="disc">Written by rules from the numbers on this page. In a full version, an AI assistant would draft these from the same sources and cite each one. Notes inform a leader's judgment; they do not rank needs.</div>
+      </aside>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <h3>About this prototype</h3>
+      <p>Built for the AI for Social Innovation conference (BYU) as a starting point for discussion with area leaders. Areas and 2025 priorities come from the Church's 2025 Caring for Those in Need report. Each area shows a sample of countries, not its full list.</p>
+    </div>
+    <div>
+      <h3>Live numbers on this page</h3>
+      <p><b>Rain, 3 months:</b> UCSB Climate Hazards Center, CHIRPS3 Standardized Precipitation Index, 18-pentad accumulation (preliminary), averaged over each country. SPI below −1 is moderately dry or worse.</p>
+      <p><b>Next 15 days:</b> CHC CHIRPS-GEFS 15-day forecast anomaly (mm), run of <span id="gefsDate"></span>.</p>
+    </div>
+    <div>
+      <h3>&nbsp;</h3>
+      <p><b>Nutrition, water, food insecurity:</b> FAO, FAOSTAT Suite of Food Security Indicators (bulk download, retrieved <span id="pulled"></span>). FAO reports undernourishment below 2.5% as "&lt;2.5".</p>
+      <p>Coverage badges on data products are approximate in this mockup; confirm with each provider before relying on them.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+const DATA = /*DATA*/;
+const MAP = /*MAP*/;
+const META = { spiWindow: "16 Jul – 15 Oct 2026", gefsRun: "21 Oct 2026", pulled: "21 Oct 2026" };
+
+const TOPICS = [
+  { id: "food", label: "Food security", intro: "Is a hunger crisis building, and where? Rainfall and crop conditions give the earliest warning; food security outlooks and market prices confirm it." },
+  { id: "water", label: "Water & sanitation", intro: "Who lacks safe water and sanitation, and is drought making it worse?" },
+  { id: "health", label: "Health, women & children", intro: "Where are mothers and young children most at risk from malnutrition and preventable disease?" },
+  { id: "education", label: "Education", intro: "Where are children out of school or not learning, and which schools lack basic facilities?" },
+  { id: "emergency", label: "Emergencies & displacement", intro: "What hazards are coming in the next weeks, and where are displaced and vulnerable people?" },
+  { id: "livelihoods", label: "Self-reliance & employment", intro: "Where are poverty and joblessness deepest, and how exposed are households to price shocks?" },
+];
+
+const AREAS = [
+  { id: "africa", name: "Africa", slug: "africa",
+    blurb: "Health care, education, clean water, food security, and sanitation across Africa.",
+    prios: [["Strengthening health systems and saving lives","health"],["Empowering students through education","education"],["Boosting food security and women's livelihoods","food"],["Addressing sanitation and hygiene crises","water"]] },
+  { id: "asia", name: "Asia", slug: "asia",
+    blurb: "Education and health care across Asia, plus emergency response.",
+    prios: [["Emergency response and clean water","emergency"],["Health care","health"],["Education","education"],["Vulnerable populations","livelihoods"]] },
+  { id: "pacific", name: "Australia, Philippines & Pacific", slug: "australia-pacific",
+    blurb: "Clean water, education, and child nutrition across the Pacific.",
+    prios: [["Clean water","water"],["Education","education"],["Child nutrition","health"]] },
+  { id: "caribbean", name: "Caribbean", slug: "caribbean",
+    blurb: "Disaster recovery, preparedness, and health care in the Caribbean.",
+    prios: [["Health care","health"],["A new emergency response hub","emergency"]] },
+  { id: "latam", name: "Central & South America", slug: "central-america-south-america",
+    blurb: "Disaster relief, health care, child nutrition, and education.",
+    prios: [["Health care","health"],["Child nutrition","food"],["Disaster relief","emergency"],["Education empowerment","education"]] },
+  { id: "europe", name: "Europe", slug: "europe",
+    blurb: "Disaster relief, health care, food security, and education for people in need.",
+    prios: [["Helping vulnerable populations","emergency"],["Supporting women and children","health"]] },
+  { id: "mideast", name: "Middle East", slug: "the-middle-east",
+    blurb: "Health care and support for vulnerable and displaced people.",
+    prios: [["Offering health care and food security","food"],["Supporting vulnerable populations with dignity","emergency"]] },
+  { id: "namerica", name: "North America", slug: "north-america",
+    blurb: "Long-term well-being and urgent needs across Canada, the United States, and Mexico.",
+    prios: [["Serving communities across Canada","livelihoods"],["Responding to emergencies in the United States","emergency"],["Education, health care, and community support in Mexico","health"]] },
+];
+
+// Countries where Jul-Oct is the dry season: a 3-month SPI there swings on very small rain totals.
+const DRY_SEASON = new Set(["EGY","SYR","JOR","LBN","TUR","GRC","ALB","YEM"]);
+const CENTROID_FIX = { KIR: [173.0, 1.4], USA: [-98, 39], CAN: [-100, 56], CHL: [-71, -33], BRA: [-52, -11], PHL: [122, 12] };
+
+// Coverage sets (approximate, for the mockup)
+const S = (...a) => new Set(a);
+const ALL = DATA.areas ? Object.values(DATA.areas).flat() : [];
+const HIGH_INCOME = S("USA","CAN","GRC","CHL","BRB");
+const FEWS_FULL = S("KEN","UGA","HTI","GTM","HND","YEM");
+const FEWS_REMOTE = S("TZA","ZMB","MMR","SYR","LBN");
+const IPC = S("KEN","UGA","TZA","ZMB","HTI","GTM","HND","YEM","LBN","GHA","GMB","LBR","DOM","PHL","SYR");
+const DHS = S("KEN","GHA","ZMB","GMB","LBR","TZA","UGA","MMR","KHM","NPL","PHL","PNG","HTI","DOM","GTM","HND","BOL","EGY","JOR","ALB","YEM");
+const MALARIA = S("KEN","GHA","ZMB","GMB","LBR","TZA","UGA","MMR","KHM","PHL","PNG","SLB","VUT","HTI","DOM","GTM","HND","BOL","BRA","YEM");
+const DTM = S("UKR","YEM","SYR","HTI","MMR","LBN","HND","GTM","KEN","UGA","PNG","PHL","VUT","MEX");
+const CROPMON = S("KEN","UGA","TZA","ZMB","GHA","GMB","LBR","MMR","KHM","LKA","NPL","PHL","HTI","GTM","HND","BOL","SYR","YEM","UKR","EGY","MEX","USA","CAN","BRA","ARG","TUR");
+
+const cov = {
+  global: () => "yes",
+  lmic: iso => HIGH_INCOME.has(iso) ? "no" : "yes",
+  chirps: iso => iso === "CAN" ? "partial" : "yes",
+  fews: iso => FEWS_FULL.has(iso) ? "yes" : FEWS_REMOTE.has(iso) ? "partial" : "no",
+  ipc: iso => IPC.has(iso) ? "yes" : "no",
+  dhs: iso => DHS.has(iso) ? "yes" : "no",
+  malaria: iso => MALARIA.has(iso) ? "yes" : "no",
+  dtm: iso => DTM.has(iso) ? "yes" : "no",
+  crop: iso => CROPMON.has(iso) ? "yes" : "no",
+};
+
+const PRODUCTS = [
+  // Food security
+  { name: "CHIRPS rainfall & SPI drought index", prov: "UCSB Climate Hazards Center", topics: ["food","water","emergency"], cov: cov.chirps, live: true,
+    url: "https://www.chc.ucsb.edu/data/chirps3",
+    what: "Satellite-plus-station rainfall back to 1981 at about 5 km, with drought indices that compare recent rain to the long-term normal.",
+    q: "Is this growing season failing, and in which districts?", res: "~5 km", cadence: "Every 5 days / monthly" },
+  { name: "CHIRPS-GEFS rainfall forecast", prov: "UCSB Climate Hazards Center", topics: ["food","emergency"], cov: cov.chirps, live: true,
+    url: "https://www.chc.ucsb.edu/data/chirps-gefs",
+    what: "Daily-updated 5-, 10- and 15-day rainfall forecasts and anomalies, bias-corrected to CHIRPS.",
+    q: "Are heavy rains or a dry spell coming in the next two weeks?", res: "~5 km", cadence: "Daily" },
+  { name: "FEWS NET Food Security Outlook", prov: "Famine Early Warning Systems Network", topics: ["food","livelihoods"], cov: cov.fews,
+    url: "https://fews.net",
+    what: "Projected acute food insecurity (IPC-compatible phases) for the next 4–8 months, with the drivers behind it: rain, prices, conflict, and income.",
+    q: "Which districts are expected to be in Crisis (Phase 3) or worse before the next harvest?", res: "District / livelihood zone", cadence: "Monthly" },
+  { name: "IPC / Cadre Harmonisé analyses", prov: "IPC partners; CILSS in West Africa", topics: ["food","health"], cov: cov.ipc,
+    url: "https://www.ipcinfo.org/ipc-country-analysis/",
+    what: "Consensus classification of acute food insecurity and acute malnutrition, with estimated numbers of people in each phase.",
+    q: "How many people are in Crisis or Emergency, and where?", res: "Admin 1–2", cadence: "1–3 times a year" },
+  { name: "FAOSTAT Food Security Indicators", prov: "FAO", topics: ["food","health","water","livelihoods"], cov: cov.global, live: true,
+    url: "https://www.fao.org/faostat/en/#data/FS",
+    what: "National indicators behind the SDG 2 targets: undernourishment, food insecurity (FIES), child stunting and wasting, anemia, water and sanitation access.",
+    q: "How does chronic hunger here compare with neighbors, and is it trending up?", res: "National", cadence: "Yearly (July)" },
+  { name: "GIEWS Food Price Monitoring (FPMA)", prov: "FAO", topics: ["food","livelihoods"], cov: cov.lmic,
+    url: "https://fpma.fao.org/giews/fpmat4/",
+    what: "Monthly retail and wholesale prices of staple foods in local markets, with alerts when prices are abnormally high.",
+    q: "Is maize, rice, or bean price spiking enough to make cash or food aid stretch less far?", res: "Market", cadence: "Monthly" },
+  { name: "WFP HungerMap LIVE", prov: "World Food Programme", topics: ["food","emergency"], cov: cov.lmic,
+    url: "https://hungermap.wfp.org",
+    what: "Near-real-time estimates of insufficient food consumption from phone surveys and models, alongside conflict, hazard, and price layers.",
+    q: "Has food consumption gotten worse in the last 30 days?", res: "Admin 1", cadence: "Daily" },
+  { name: "GEOGLAM Crop Monitor", prov: "GEO / NASA Harvest", topics: ["food"], cov: cov.crop,
+    url: "https://www.cropmonitor.org",
+    what: "Expert-consensus crop condition maps and planting/harvest calendars for countries at risk of food insecurity.",
+    q: "Is the main crop in good, watch, or poor condition, and when is harvest?", res: "Admin 1", cadence: "Monthly" },
+  // Water
+  { name: "WHO/UNICEF JMP household WASH data", prov: "WHO & UNICEF Joint Monitoring Programme", topics: ["water","health","education"], cov: cov.global,
+    url: "https://washdata.org",
+    what: "Official estimates of drinking water, sanitation, and hygiene service levels for households, schools, and health facilities, split by urban and rural.",
+    q: "Which settings lack basic water: homes, schools, or clinics?", res: "National, urban/rural", cadence: "Every 2 years" },
+  { name: "Aqueduct Water Risk Atlas", prov: "World Resources Institute", topics: ["water","emergency"], cov: cov.global,
+    url: "https://www.wri.org/aqueduct",
+    what: "Maps of baseline water stress, drought and flood risk, and projections to 2050 by river basin.",
+    q: "Will a new well or water system face long-term water stress here?", res: "Sub-basin", cadence: "Periodic" },
+  // Health
+  { name: "DHS Program STATcompiler", prov: "USAID DHS Program", topics: ["health","education","water"], cov: cov.dhs,
+    url: "https://www.statcompiler.com",
+    what: "Household survey results on maternal and child health, nutrition, vaccination, and education, often down to region level.",
+    q: "Which regions have the lowest skilled-birth attendance or vaccination?", res: "Admin 1", cadence: "Survey every ~5 years" },
+  { name: "Joint Child Malnutrition Estimates", prov: "UNICEF, WHO & World Bank", topics: ["health","food"], cov: cov.global,
+    url: "https://data.unicef.org/resources/jme/",
+    what: "Harmonized national estimates of stunting, wasting, and overweight in children under five.",
+    q: "Is child malnutrition here severe enough to prioritize nutrition programs?", res: "National", cadence: "Yearly" },
+  { name: "WHO Global Health Observatory", prov: "World Health Organization", topics: ["health"], cov: cov.global,
+    url: "https://www.who.int/data/gho",
+    what: "Maternal and newborn mortality, immunization coverage, disease burden, and health workforce density.",
+    q: "Where are maternal and newborn deaths highest?", res: "National", cadence: "Yearly" },
+  { name: "Malaria Atlas Project", prov: "Malaria Atlas Project", topics: ["health"], cov: cov.malaria,
+    url: "https://malariaatlas.org",
+    what: "Modeled maps of malaria prevalence, incidence, and bed-net coverage.",
+    q: "Would bed nets or clinic supplies reach high-burden districts?", res: "~5 km", cadence: "Yearly" },
+  { name: "Healthsites.io", prov: "Global Healthsites Mapping Project", topics: ["health","emergency"], cov: cov.global,
+    url: "https://healthsites.io",
+    what: "Open map of hospitals, clinics, and pharmacies built from OpenStreetMap.",
+    q: "How far are communities from the nearest health facility?", res: "Facility", cadence: "Continuous" },
+  // Education
+  { name: "UNESCO UIS education data", prov: "UNESCO Institute for Statistics", topics: ["education"], cov: cov.global,
+    url: "https://databrowser.uis.unesco.org",
+    what: "Enrollment, out-of-school rates, completion, and learning outcomes by level and sex.",
+    q: "How many children are out of school, and at which level do they drop out?", res: "National", cadence: "Yearly" },
+  { name: "Giga school connectivity map", prov: "UNICEF & ITU", topics: ["education"], cov: cov.global,
+    url: "https://maps.giga.global",
+    what: "Locations of schools and whether they are connected to the internet.",
+    q: "Which schools lack connectivity for digital learning?", res: "School", cadence: "Continuous" },
+  { name: "World Bank Learning Poverty", prov: "World Bank", topics: ["education"], cov: cov.lmic,
+    url: "https://www.worldbank.org/en/topic/education/brief/learning-poverty",
+    what: "Share of 10-year-olds who cannot read and understand a simple text.",
+    q: "Is the problem access to school, or learning once there?", res: "National", cadence: "Periodic" },
+  // Emergencies
+  { name: "INFORM Risk Index", prov: "European Commission JRC", topics: ["emergency","livelihoods"], cov: cov.global,
+    url: "https://drmkc.jrc.ec.europa.eu/inform-index",
+    what: "Composite score of hazard exposure, vulnerability, and coping capacity, with seasonal and severity versions.",
+    q: "Which countries in this area are most likely to need emergency relief this year?", res: "National (some subnational)", cadence: "Twice a year" },
+  { name: "GDACS disaster alerts", prov: "UN & European Commission", topics: ["emergency"], cov: cov.global,
+    url: "https://www.gdacs.org",
+    what: "Real-time alerts and impact estimates for earthquakes, tropical cyclones, floods, and volcanoes.",
+    q: "Is a cyclone or flood about to hit communities we serve?", res: "Event", cadence: "Real time" },
+  { name: "GloFAS flood forecasts", prov: "Copernicus Emergency Management Service", topics: ["emergency","water"], cov: cov.global,
+    url: "https://global-flood.emergency.copernicus.eu",
+    what: "River flood forecasts up to 30 days ahead, plus seasonal outlooks.",
+    q: "Should we pre-position supplies before a river floods?", res: "River reach", cadence: "Daily" },
+  { name: "IOM Displacement Tracking Matrix", prov: "International Organization for Migration", topics: ["emergency","livelihoods"], cov: cov.dtm,
+    url: "https://dtm.iom.int",
+    what: "Counts, locations, and needs of internally displaced people and migrants.",
+    q: "Where are displaced families living, and what do they need most?", res: "Site / Admin 2", cadence: "Monthly to quarterly" },
+  { name: "Humanitarian Data Exchange (HDX)", prov: "UN OCHA", topics: ["emergency","food","health","education","water","livelihoods"], cov: cov.global,
+    url: "https://data.humdata.org",
+    what: "Open catalog of 20,000+ humanitarian datasets: boundaries, population, 3W (who's doing what where), needs assessments.",
+    q: "Which other organizations already work in this district?", res: "Varies", cadence: "Continuous" },
+  // Livelihoods
+  { name: "World Bank Poverty & Inequality Platform", prov: "World Bank", topics: ["livelihoods"], cov: cov.global,
+    url: "https://pip.worldbank.org",
+    what: "Poverty rates at international lines ($3.00/day and others) and inequality measures.",
+    q: "What share of people live in extreme poverty, and is it falling?", res: "National", cadence: "Twice a year" },
+  { name: "Global Multidimensional Poverty Index", prov: "UNDP & OPHI", topics: ["livelihoods","education","health"], cov: cov.lmic,
+    url: "https://ophi.org.uk/global-mpi",
+    what: "Poverty measured by overlapping deprivations in health, schooling, and living standards, often by region.",
+    q: "Which regions are poorest when you count schooling, health, and housing?", res: "Admin 1", cadence: "Yearly" },
+  { name: "ILOSTAT labour statistics", prov: "International Labour Organization", topics: ["livelihoods"], cov: cov.global,
+    url: "https://ilostat.ilo.org",
+    what: "Unemployment, youth not in employment or education (NEET), informal work, and wages.",
+    q: "Would job-skills training meet a real gap for young adults here?", res: "National", cadence: "Yearly" },
+  { name: "WorldPop population grids", prov: "University of Southampton", topics: ["livelihoods","emergency","health","education"], cov: cov.global,
+    url: "https://www.worldpop.org",
+    what: "Gridded population counts by age and sex, for estimating how many people a project or hazard reaches.",
+    q: "How many children under five live within reach of this clinic?", res: "100 m", cadence: "Yearly" },
+];
+
+const SPI_CLASSES = [
+  { max: -2, label: "Extremely dry", color: "#7a3b0c", dark: true },
+  { max: -1.5, label: "Severely dry", color: "#b3631e", dark: true },
+  { max: -1, label: "Moderately dry", color: "#d79a4f" },
+  { max: -0.5, label: "Abnormally dry", color: "#ecd29b" },
+  { max: 0.5, label: "Near normal", color: "var(--near)" },
+  { max: 1, label: "Slightly wet", color: "#a6d4c4" },
+  { max: 1.5, label: "Moderately wet", color: "#5aa996" },
+  { max: Infinity, label: "Very wet", color: "#1f6f63", dark: true },
+];
+const spiClass = v => v == null ? null : SPI_CLASSES.find(c => v <= c.max);
+
+// ---------- state ----------
+let state = { area: "africa", iso: "KEN", topic: "food" };
+try { const s = JSON.parse(localStorage.getItem("adc-state") || "null"); if (s && DATA.areas[s.area]) state = { ...state, ...s }; } catch (e) {}
+const save = () => { try { localStorage.setItem("adc-state", JSON.stringify(state)); } catch (e) {} };
+
+const $ = id => document.getElementById(id);
+const C = iso => DATA.countries[iso];
+const areaMeta = id => AREAS.find(a => a.id === id);
+const fao = (iso, k) => C(iso)?.fao?.[k]?.latest || null;
+const fmtFao = (iso, k) => { const f = fao(iso, k); if (!f) return null; return (f[2] ? "<" : "") + (f[1] % 1 ? f[1].toFixed(1) : f[1]); };
+const signed = (v, d = 1) => v == null ? "—" : (v > 0 ? "+" : v < 0 ? "−" : "") + Math.abs(v).toFixed(d);
+const esc = s => String(s).replace(/[&<>"]/g, m => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[m]));
+
+// ---------- area pills ----------
+function renderPills() {
+  $("areaPills").innerHTML = AREAS.map(a => `<button class="pill" type="button" data-area="${a.id}" aria-pressed="${a.id === state.area}">${esc(a.name)}</button>`).join("");
+}
+$("areaPills").addEventListener("click", e => {
+  const b = e.target.closest("[data-area]"); if (!b) return;
+  state.area = b.dataset.area; state.iso = DATA.areas[state.area][0]; render();
+});
+
+function renderAreaHead() {
+  const a = areaMeta(state.area);
+  $("areaName").textContent = a.name;
+  $("areaBlurb").textContent = a.blurb + ` Showing ${DATA.areas[a.id].length} countries named in the 2025 report.`;
+  $("areaLink").href = `https://www.churchofjesuschrist.org/serve/caring/report/${a.slug}?lang=eng`;
+  $("prioList").innerHTML = a.prios.map(([t, top]) =>
+    `<li><span>${esc(t)}</span><button class="chip" type="button" data-topic="${top}">${esc(TOPICS.find(x => x.id === top).label)} data →</button></li>`).join("");
+}
+$("prioList").addEventListener("click", e => {
+  const b = e.target.closest("[data-topic]"); if (!b) return;
+  state.topic = b.dataset.topic; render(); $("tabs").scrollIntoView({ behavior: "smooth", block: "start" });
+});
+
+// ---------- map ----------
+function lonlat(iso) {
+  const c = CENTROID_FIX[iso] || [C(iso).lon, C(iso).lat];
+  return [state.area === "pacific" && c[0] < 0 ? c[0] + 360 : c[0], c[1]];
+}
+function renderMap() {
+  const isos = DATA.areas[state.area];
+  const pts = isos.map(lonlat);
+  let x0 = Math.min(...pts.map(p => p[0])), x1 = Math.max(...pts.map(p => p[0]));
+  let y0 = Math.min(...pts.map(p => -p[1])), y1 = Math.max(...pts.map(p => -p[1]));
+  let w = x1 - x0, h = y1 - y0; const pad = Math.max(w, h) * 0.18 + 6;
+  x0 -= pad; x1 += pad; y0 -= pad; y1 += pad; w = x1 - x0; h = y1 - y0;
+  const ratio = 16 / 10;
+  if (w / h > ratio) { const nh = w / ratio; y0 -= (nh - h) / 2; h = nh; } else { const nw = h * ratio; x0 -= (nw - w) / 2; w = nw; }
+  const svg = $("map");
+  svg.setAttribute("viewBox", `${x0.toFixed(2)} ${y0.toFixed(2)} ${w.toFixed(2)} ${h.toFixed(2)}`);
+  const feat = new Set(isos);
+  const fill = iso => { const k = spiClass(C(iso)?.spi_mean); return k ? k.color : "var(--land)"; };
+  let land = "";
+  for (const [iso, d] of Object.entries(MAP)) {
+    if (feat.has(iso)) continue;
+    land += `<path d="${d}"/>`;
+  }
+  let featPaths = "";
+  for (const iso of isos) if (MAP[iso]) featPaths += `<path class="feat${iso === state.iso ? " sel" : ""}" data-iso="${iso}" d="${MAP[iso]}" style="fill:${fill(iso)}"><title>${esc(C(iso).name)}</title></path>`;
+  const r = w / 110, fs = w / 48;
+  let dots = "", labels = "";
+  for (const iso of isos) {
+    const [x, y] = lonlat(iso);
+    const small = !MAP[iso] || ["WSM","TON","KIR","BRB","VUT","SLB","JAM","GMB","LBN","ALB"].includes(iso);
+    if (small) dots += `<circle class="dot${iso === state.iso ? " sel" : ""}" data-iso="${iso}" cx="${x}" cy="${-y}" r="${r}" style="fill:${fill(iso)}"><title>${esc(C(iso).name)}</title></circle>`;
+    labels += `<text x="${x + (small ? r * 1.6 : 0)}" y="${-y + fs * .35}" font-size="${fs}" text-anchor="${small ? "start" : "middle"}">${esc(shortName(iso))}</text>`;
+  }
+  const shift = state.area === "pacific" ? `<g transform="translate(360 0)">${land}${featPathsShifted(isos, fill)}</g>` : "";
+  svg.innerHTML = `<g>${land}</g>${shift}<g>${state.area === "pacific" ? "" : featPaths}</g>${dots}${labels}`;
+}
+// For the Pacific view, featured countries west of the dateline are drawn in the shifted copy.
+function featPathsShifted(isos, fill) {
+  return isos.filter(i => MAP[i]).map(iso => `<path class="feat${iso === state.iso ? " sel" : ""}" data-iso="${iso}" d="${MAP[iso]}" style="fill:${fill(iso)}" transform="translate(-360 0)"><title>${esc(C(iso).name)}</title></path><path class="feat${iso === state.iso ? " sel" : ""}" data-iso="${iso}" d="${MAP[iso]}" style="fill:${fill(iso)}"><title>${esc(C(iso).name)}</title></path>`).join("");
+}
+const SHORT = { "United States of America": "United States", "Dominican Rep.": "Dominican Rep.", "Papua New Guinea": "PNG", "Solomon Is.": "Solomon Is." };
+const shortName = iso => SHORT[C(iso).name] || C(iso).name;
+$("map").addEventListener("click", e => { const t = e.target.closest("[data-iso]"); if (t) { state.iso = t.dataset.iso; render(); } });
+
+function renderLegend() {
+  $("legend").innerHTML = SPI_CLASSES.map(c => `<span><i style="background:${c.color}"></i>${c.label}</span>`).join("");
+  $("spiWindow").textContent = "CHC CHIRPS3 SPI · " + META.spiWindow;
+}
+
+// ---------- table ----------
+function cls(v, md, hi, invert) { if (v == null) return "na"; return invert ? (v <= hi ? "hi" : v <= md ? "md" : "") : (v >= hi ? "hi" : v >= md ? "md" : ""); }
+function renderTable() {
+  const isos = DATA.areas[state.area];
+  $("cmp").querySelector("tbody").innerHTML = isos.map(iso => {
+    const c = C(iso), k = spiClass(c.spi_mean);
+    const pou = fao(iso, "pou"), st = fao(iso, "stunting"), wa = fao(iso, "water_basic");
+    const dry = DRY_SEASON.has(iso) ? " *" : "";
+    return `<tr data-iso="${iso}" aria-selected="${iso === state.iso}" tabindex="0">
+      <td>${esc(c.name)}</td>
+      <td class="num"><span class="sw" style="background:${k ? k.color : "transparent"}"></span>${signed(c.spi_mean, 2)}${dry}</td>
+      <td class="num ${cls(c.spi_dry_pct, 30, 60)}">${c.spi_dry_pct == null ? "—" : Math.round(c.spi_dry_pct) + "%"}</td>
+      <td class="num ${c.gefs_anom_mm != null && Math.abs(c.gefs_anom_mm) >= 50 ? "md" : ""}">${c.gefs_anom_mm == null ? "—" : signed(c.gefs_anom_mm, 0) + " mm"}</td>
+      <td class="num ${pou ? cls(pou[1], 10, 20) : "na"}">${fmtFao(iso, "pou") ? fmtFao(iso, "pou") + "%" : "—"}</td>
+      <td class="num ${st ? cls(st[1], 20, 30) : "na"}">${st ? st[1].toFixed(1) + "%" : "—"}</td>
+      <td class="num ${wa ? cls(wa[1], 90, 70, true) : "na"}">${wa ? Math.round(wa[1]) + "%" : "—"}</td>
+    </tr>`;
+  }).join("");
+  const hasDry = isos.some(i => DRY_SEASON.has(i));
+  $("cmp").parentElement.nextElementSibling.innerHTML = "Rain: CHC CHIRPS SPI and CHIRPS-GEFS 15-day forecast, averaged over each country. Nutrition and water: FAOSTAT. Orange and red mark values past common alert thresholds." + (hasDry ? " <b>*</b> July–October is the dry season here, so small rain totals swing the SPI; read it with caution." : "");
+}
+$("cmp").addEventListener("click", e => { const r = e.target.closest("tr[data-iso]"); if (r) { state.iso = r.dataset.iso; render(); } });
+$("cmp").addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { const r = e.target.closest("tr[data-iso]"); if (r) { e.preventDefault(); state.iso = r.dataset.iso; render(); r.focus(); } } });
+
+// ---------- focus ----------
+function renderFocus() {
+  const c = C(state.iso), a = areaMeta(state.area);
+  $("focusEyebrow").textContent = a.name;
+  $("focusName").textContent = c.name === "United States of America" ? "United States" : c.name;
+  $("countrySel").innerHTML = DATA.areas[state.area].map(i => `<option value="${i}"${i === state.iso ? " selected" : ""}>${esc(C(i).name)}</option>`).join("");
+  const prioTopics = new Set(a.prios.map(p => p[1]));
+  $("tabs").innerHTML = TOPICS.map(t => `<button class="tab" role="tab" type="button" data-topic="${t.id}" aria-selected="${t.id === state.topic}" title="${prioTopics.has(t.id) ? "A 2025 priority for this area" : ""}">${prioTopics.has(t.id) ? '<span class="pd" aria-hidden="true"></span>' : ""}${esc(t.label)}</button>`).join("");
+  const T = TOPICS.find(t => t.id === state.topic);
+  $("tabIntro").innerHTML = (prioTopics.has(T.id) ? `<b>A 2025 priority in ${esc(a.name)}.</b> ` : "") + esc(T.intro);
+  renderTiles(); renderProducts(); renderNotes();
+}
+$("countrySel").addEventListener("change", e => { state.iso = e.target.value; render(); });
+$("tabs").addEventListener("click", e => { const b = e.target.closest("[data-topic]"); if (b) { state.topic = b.dataset.topic; render(); } });
+
+function tile({ lab, val, unit = "", state: st, meta, spark }) {
+  if (val == null) return `<div class="tile empty"><span class="lab">${lab}</span><span class="val">Not yet connected</span><span class="meta">${meta || ""}</span></div>`;
+  return `<div class="tile"><span class="lab">${lab}</span><span class="val">${val}<small>${unit}</small></span>${st ? `<span class="state st-${st[0]}">${st[1]}</span>` : ""}${spark || ""}<span class="meta">${meta || ""}</span></div>`;
+}
+function spiTile(iso) {
+  const c = C(iso), k = spiClass(c.spi_mean);
+  const sev = c.spi_mean <= -1 ? "crit" : c.spi_mean <= -0.5 ? "warn" : c.spi_mean >= 1 ? "ok" : "none";
+  return tile({ lab: "Rain, last 3 months (SPI)", val: signed(c.spi_mean, 2), state: [sev, k.label + (DRY_SEASON.has(iso) ? " · dry season" : "")], meta: `CHC CHIRPS3 · ${META.spiWindow}` });
+}
+function dryTile(iso) {
+  const v = C(iso).spi_dry_pct;
+  return tile({ lab: "Area moderately dry or worse", val: Math.round(v), unit: "%", state: v >= 60 ? ["crit", "Widespread"] : v >= 30 ? ["warn", "Patchy"] : ["ok", "Limited"], meta: "Share of land with SPI ≤ −1" });
+}
+function gefsTile(iso) {
+  const v = C(iso).gefs_anom_mm;
+  const st = v <= -50 ? ["warn", "Much drier than normal"] : v <= -15 ? ["none", "Drier than normal"] : v >= 50 ? ["warn", "Much wetter: flood watch"] : v >= 15 ? ["none", "Wetter than normal"] : ["ok", "Near normal"];
+  return tile({ lab: "Next 15 days vs. normal", val: signed(v, 0), unit: " mm", state: st, meta: `CHIRPS-GEFS forecast · run ${META.gefsRun}` });
+}
+function faoTile(iso, key, lab, thresholds, invert, note) {
+  const f = fao(iso, key);
+  if (!f) return tile({ lab, val: null, meta: "FAOSTAT: no value for this country" });
+  const v = f[1]; let st = null;
+  if (thresholds) {
+    const [md, hi, words] = thresholds;
+    st = invert ? (v <= hi ? ["crit", words[2]] : v <= md ? ["warn", words[1]] : ["ok", words[0]]) : (v >= hi ? ["crit", words[2]] : v >= md ? ["warn", words[1]] : ["ok", words[0]]);
+  }
+  const ser = key === "pou" ? C(iso).fao.pou.series : null;
+  return tile({ lab, val: (f[2] ? "<" : "") + (v % 1 ? v.toFixed(1) : v), unit: key.endsWith("_dep") ? "%" : "%", state: st, spark: ser ? sparkline(ser) : "", meta: `FAOSTAT · ${f[0]}${note ? " · " + note : ""}` });
+}
+function sparkline(ser) {
+  const vals = ser.map(s => s[1]); const n = vals.length; if (n < 2) return "";
+  const lo = Math.min(...vals), hi = Math.max(...vals), span = hi - lo || 1;
+  const W = 200, H = 34, P = 3;
+  const pts = vals.map((v, i) => [P + i * (W - 2 * P) / (n - 1), H - P - (v - lo) / span * (H - 2 * P)]);
+  const line = pts.map((p, i) => (i ? "L" : "M") + p[0].toFixed(1) + " " + p[1].toFixed(1)).join("");
+  const last = pts[n - 1];
+  return `<svg class="spark" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" aria-label="Trend ${ser[0][0]} to ${ser[n - 1][0]}"><path d="${line}L${last[0]} ${H}L${P} ${H}Z" fill="var(--accent-soft)"/><path d="${line}" fill="none" stroke="var(--accent)" stroke-width="1.5" vector-effect="non-scaling-stroke"/><circle cx="${last[0]}" cy="${last[1]}" r="2.5" fill="var(--accent)"/></svg><span class="meta" style="padding:0">${ser[0][0]} → ${ser[n - 1][0]}</span>`;
+}
+function renderTiles() {
+  const iso = state.iso, t = state.topic; let h = "";
+  const pou = () => faoTile(iso, "pou", "Undernourished", [10, 20, ["Low", "Moderate", "High"]]);
+  const fi = () => faoTile(iso, "fi_modsev", "Moderate or severe food insecurity", [25, 50, ["Lower", "Elevated", "High"]]);
+  if (t === "food") h = spiTile(iso) + dryTile(iso) + gefsTile(iso) + pou() + fi() + faoTile(iso, "cereal_import_dep", "Cereal import dependency", [30, 60, ["Low", "Moderate", "High"]], false, "price-shock exposure");
+  if (t === "water") h = faoTile(iso, "water_basic", "Basic drinking water", [90, 70, ["High", "Gaps", "Low"]], true) + faoTile(iso, "sanit_basic", "Basic sanitation", [90, 60, ["High", "Gaps", "Low"]], true) + spiTile(iso) + dryTile(iso);
+  if (t === "health") h = faoTile(iso, "stunting", "Child stunting (under 5)", [20, 30, ["Low/medium", "High", "Very high"]]) + faoTile(iso, "wasting", "Child wasting (under 5)", [5, 10, ["Low", "Medium", "High"]]) + faoTile(iso, "anemia", "Anemia, women 15–49", [20, 40, ["Mild", "Moderate", "Severe"]]) + tile({ lab: "Maternal mortality", val: null, meta: "Suggested source: WHO Global Health Observatory" }) + tile({ lab: "Health facility access", val: null, meta: "Suggested source: Healthsites.io + WorldPop" });
+  if (t === "education") h = tile({ lab: "Out-of-school rate, primary", val: null, meta: "Suggested source: UNESCO UIS" }) + tile({ lab: "Learning poverty", val: null, meta: "Suggested source: World Bank" }) + tile({ lab: "Schools with basic water", val: null, meta: "Suggested source: JMP WASH in schools" }) + faoTile(iso, "stunting", "Child stunting (affects learning)", [20, 30, ["Low/medium", "High", "Very high"]]);
+  if (t === "emergency") h = gefsTile(iso) + spiTile(iso) + dryTile(iso) + tile({ lab: "INFORM risk score", val: null, meta: "Suggested source: INFORM Risk Index" }) + tile({ lab: "Active disaster alerts", val: null, meta: "Suggested source: GDACS" });
+  if (t === "livelihoods") h = pou() + fi() + faoTile(iso, "cereal_import_dep", "Cereal import dependency", [30, 60, ["Low", "Moderate", "High"]], false, "price-shock exposure") + tile({ lab: "Extreme poverty rate", val: null, meta: "Suggested source: World Bank PIP" }) + tile({ lab: "Youth not in work or school", val: null, meta: "Suggested source: ILOSTAT" });
+  $("tiles").innerHTML = h;
+}
+
+const COV_LABEL = { yes: ["ok", "Covers this country"], partial: ["warn", "Partial coverage"], no: ["none", "Not available here"] };
+function renderProducts() {
+  const list = PRODUCTS.filter(p => p.topics.includes(state.topic)).map(p => ({ ...p, c: p.cov(state.iso) }))
+    .sort((a, b) => ({ yes: 0, partial: 1, no: 2 }[a.c] - { yes: 0, partial: 1, no: 2 }[b.c]) || (b.live ? 1 : 0) - (a.live ? 1 : 0));
+  const n = list.filter(p => p.c !== "no").length;
+  $("prodCount").textContent = `${n} of ${list.length} available for ${C(state.iso).name}`;
+  $("products").innerHTML = list.map(p => {
+    const [s, l] = COV_LABEL[p.c];
+    return `<article class="prod${p.c === "no" ? " dim" : ""}">
+      <div class="prod-top"><h4><a href="${p.url}" target="_blank" rel="noopener">${esc(p.name)} ↗</a>${p.live ? '<span class="live">Live on this page</span>' : ""}</h4><span class="cov st-${s}">${l}</span></div>
+      <div class="prov">${esc(p.prov)}</div>
+      <p>${esc(p.what)}</p>
+      <div class="q"><b>Helps answer:</b> ${esc(p.q)}</div>
+      <div class="facts"><span>Detail: <b>${esc(p.res)}</b></span><span>Updated: <b>${esc(p.cadence)}</b></span><span>Cost: <b>Free</b></span></div>
+    </article>`;
+  }).join("");
+}
+
+function renderNotes() {
+  const iso = state.iso, c = C(iso), name = c.name === "United States of America" ? "the United States" : c.name, t = state.topic;
+  const N = [];
+  const pou = fao(iso, "pou"), fi = fao(iso, "fi_modsev"), st = fao(iso, "stunting"), wa = fao(iso, "wasting"), an = fao(iso, "anemia");
+  const wat = fao(iso, "water_basic"), san = fao(iso, "sanit_basic"), dep = fao(iso, "cereal_import_dep");
+  const dryNote = DRY_SEASON.has(iso) ? " This is the dry season here, so the signal matters less than it would during the rains." : "";
+  const rainNote = () => {
+    if (c.spi_dry_pct >= 60) N.push(`${Math.round(c.spi_dry_pct)}% of ${name} has been moderately dry or worse since mid-July (average SPI ${signed(c.spi_mean, 2)}). Check whether this overlaps the main growing season before setting food-security budgets.${dryNote}`);
+    else if (c.spi_dry_pct >= 30) N.push(`Dryness is patchy: ${Math.round(c.spi_dry_pct)}% of ${name} has had below-normal rain since mid-July. District-level CHIRPS maps would show which stakes and branches are affected.${dryNote}`);
+    else if (c.spi_mean >= 1) N.push(`The last three months were wetter than normal in ${name} (SPI ${signed(c.spi_mean, 2)}). Good for crops; watch for flood damage and waterborne disease.`);
+    else N.push(`Rainfall since mid-July has been near normal across most of ${name}.${dryNote}`);
+  };
+  const fcNote = () => {
+    if (c.gefs_anom_mm <= -50) N.push(`The 15-day forecast is ${Math.abs(Math.round(c.gefs_anom_mm))} mm drier than normal. If planting is under way, a dry spell now can cut yields.`);
+    else if (c.gefs_anom_mm >= 50) N.push(`The 15-day forecast is ${Math.round(c.gefs_anom_mm)} mm wetter than normal. Consider pre-positioning relief supplies and checking GloFAS for river flooding.`);
+  };
+  if (t === "food") {
+    rainNote(); fcNote();
+    if (pou && pou[1] >= 20) N.push(`About 1 in ${Math.max(2, Math.round(100 / pou[1]))} people in ${name} are undernourished (${pou[1]}%, ${pou[0]}). Chronic hunger is high regardless of this season's rain.`);
+    else if (pou) N.push(`Undernourishment is ${pou[2] ? "below 2.5%" : pou[1] + "%"} (${pou[0]}), so acute shocks matter more than chronic hunger here.`);
+    if (dep && dep[1] >= 50) N.push(`${name} imports ${Math.round(dep[1])}% of its cereals, so world grain prices pass through quickly. Watch the FAO price monitor.`);
+    if (cov.fews(iso) === "yes") N.push(`FEWS NET publishes outlooks for ${name}. Its latest projection is the best single read on the months before the next harvest.`);
+  }
+  if (t === "water") {
+    if (wat && wat[1] < 70) N.push(`Only ${Math.round(wat[1])}% of people in ${name} have basic drinking water (${wat[0]}). Water projects reach a large unserved population.`);
+    else if (wat) N.push(`${Math.round(wat[1])}% have basic drinking water (${wat[0]}). Remaining gaps are likely rural or in specific districts; JMP's urban/rural split shows where.`);
+    if (san && san[1] < 60) N.push(`Basic sanitation is ${Math.round(san[1])}%, well below water access. Pairing latrines and handwashing with water projects lowers disease risk.`);
+    rainNote();
+  }
+  if (t === "health") {
+    if (st) N.push(`Child stunting is ${st[1]}% (${st[0]}), which WHO rates ${st[1] >= 30 ? "very high" : st[1] >= 20 ? "high" : st[1] >= 10 ? "medium" : "low"}.${st[1] >= 20 ? " Child nutrition screening and supplementation would meet a real need." : ""}`);
+    if (wa && wa[1] >= 5) N.push(`Wasting affects ${wa[1]}% of children under five, a sign of acute malnutrition. IPC Acute Malnutrition analyses, where available, show which districts.`);
+    if (an && an[1] >= 30) N.push(`${Math.round(an[1])}% of women of reproductive age are anemic (${an[0]}), a risk for safe childbirth. This supports maternal and newborn care priorities.`);
+    N.push(`DHS ${cov.dhs(iso) === "yes" ? "surveys exist for " + name + " and give region-level maternal and child health data." : "surveys are not available here; use WHO and UNICEF national estimates."}`);
+  }
+  if (t === "education") {
+    N.push(`Education indicators are not yet connected in this prototype. UNESCO UIS and the World Bank's learning poverty measure are the first sources to add.`);
+    if (st && st[1] >= 25) N.push(`High child stunting (${st[1]}%) is linked to lower school performance; nutrition and education programs can reinforce each other.`);
+  }
+  if (t === "emergency") {
+    fcNote(); rainNote();
+    if (DTM.has(iso)) N.push(`IOM tracks displaced people in ${name}. Their site-level data shows where displaced families live and what they lack.`);
+    N.push(`GDACS alerts are the fastest way to learn of a cyclone, flood, or earthquake affecting ${name}. A full version would show active alerts here.`);
+  }
+  if (t === "livelihoods") {
+    if (fi) N.push(`${Math.round(fi[1])}% of people in ${name} face moderate or severe food insecurity (${fi[0]}), a broad signal of household hardship.`);
+    if (dep && dep[1] >= 50) N.push(`High cereal import dependency (${Math.round(dep[1])}%) means food costs track world prices and the exchange rate.`);
+    N.push(`Poverty and youth employment data are not yet connected here. The World Bank PIP and ILOSTAT are the first sources to add.`);
+  }
+  $("notes").innerHTML = N.filter(Boolean).map(n => `<li>${esc(n)}</li>`).join("");
+  $("askOut").textContent = "";
+}
+$("askBtn").addEventListener("click", () => {
+  const q = $("askBox").value.trim();
+  $("askOut").textContent = q ? `In a working version, an assistant would answer "${q}" for ${C(state.iso).name} using the sources listed on this page, and link each one.` : "Type a question first.";
+});
+$("askBox").addEventListener("keydown", e => { if (e.key === "Enter") $("askBtn").click(); });
+
+function render() {
+  if (!DATA.areas[state.area].includes(state.iso)) state.iso = DATA.areas[state.area][0];
+  renderPills(); renderAreaHead(); renderMap(); renderTable(); renderFocus(); save();
+}
+$("gefsDate").textContent = META.gefsRun; $("pulled").textContent = META.pulled;
+renderLegend(); render();
+</script>
